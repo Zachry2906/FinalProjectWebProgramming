@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="stylesheet" href="bodyngawur.css">
+      <link rel="icon" type="image/x-icon" href="xxx.png">
+      <script src="ngawur.js"></script>
+      <title>Belajar html di skilvul</title>
+<!--Fornatnya ga harus ico sih bisa lainnya jg kok-->
+</head>
+<body>
+  <script src="ngawur.js"></script>
+<!-- nav digunakan untuk tautan navigasi utama 
+<nav>
+<a href="./home">Home</a>
+<a href="./signup">Sign Up</a>
+<a href="./login">Log In</a>  bisa pake ini atau jg bisa pake yg CSS dibawah-->
+      <ul>
+        <li><a href="./home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+
+    <h1>Memulai Ulang</h1>
+
+      <p><a href="#FORM">jUP TO format</a></p>
+      <p style="border: 2px solid rgb(99, 37, 241);">Mobil<span style="color:rgb(10, 117, 131)"> Cyan</span> itu sangat cepat</p>
+      <p style="background-color: white; color: blue;"> Nama saya <b>Sarah</b>. Saya <del>berumur</del>berumur <strong>22<strong> tahun.</p>
+      <p style="text-align:center;">latin dari tanaman <small> padi </small> adalah <mark><q><i>Oryza</i> <em>sativa L.</em></q></mark><abbr title="World Health Organization">WHO</abbr></p> 
+<!-- element em ini sama fungsinya kayak italic sans aja -->
+      <p style="background-color: rgb(37, 199, 199);"><a href="https://skilvul.com/courses/html-dasar/lessons/html-tag-untuk-menampilkan-teks/topics/linkanchor" target="_blank">
+        Semua konten disini diambil dari web ini</a></p>
+
+    <ins style="background-color:rgba(190,87,32,0.1);">gatau coba-coba aja<sup>[1]</sup></ins>
+    <img height="270" width="480" src="fffffffff.png" alt="logo skilvull" usemap="#workmap"><br>
+          <!-- haru pakai usemap kalo mau buat clickable di foto, dan namanya pun harus mirip-->
+    <map name="workmap">
+      <area shape="rect" coords="82,68,400,203" href="GATAU IIN APA.html" onclick="myFunction()">
+<!--untuk cari koordinat bisa pkae paint gan-->
+    </map>
+    <script>
+      function myFunction() {
+        alert("You clicked your gf!");
+      }
+    </script>
+        <!--br itu buat space break-->
+    <br><video width="341" height="192" poster="benar_00013.png" controls>
+        <!--control bisa diganti juga pake "autoplay"--> 
+    <source src="Screenshot (178)-1(1).m4v" type="video/mp4"/></video>
+        <!--Type video untuk mengatasi format video disebuah browswr, misal di edge gabisa m4v, bisa diganti pake mp4 di type-->
+    <br><audio controls>
+          <source src="15 Evaluasi.m4a" type="audio/mp3"/>
+          <source src="15 Evaluasi.m4a" type="audio/m4a"/>
+          <!-- di element audio bisa diganti pakai loop sama autoplay bebas-->
+    </audio>
+    <br><iframe frameborder="10" width="600" height="300" src="https://id.wikipedia.org/wiki/Loona">
+          <!-- bisa hapus scroll pake command scrolling="no"-->
+    </iframe>
+    <div class="video-wrap">
+      <div class="video">
+        <iframe width="600" height="340" src="https://www.youtube.com/embed/0pThnRneDjw" frameborder="0" gesture="media" allowfullscreen></iframe>
+      </div>
+    </div>
+    <ol style="list-style-type:square;">
+      <li>Kopi</li>
+      <li>Teh
+          <ul>
+            <li>Teh Hitam</li>
+            <li>Teh Hijau</li>
+          </ul>
+      </li>
+      <li>Susu</li>
+    </ol>
+
+    <table>
+      <caption>HHHHHHH</caption>
+      <tr>
+        <th colspan="2">Nama</th>
+        <th>Alamat</th>
+        <th>Sekolah</th>
+        <!--td untuk membuat menjadi tebal-->
+      </tr>
+      <tr>
+        <td>Alipia</td>
+        <td>Cangkringan</td>
+        <td>MAN 3 SLEMAN</td>
+      </tr>
+    </table>
+
+    <form id="FORM" action="" method="get" >
+      <fieldset>
+        <!--fieldset ini buat itu sih buat kotakan form-->
+        <legend> Gatau ini cuma coba-coba sih</legend>
+        <!--legend itu buat table name-->
+
+        <p>Nama : <input type="text" name="nama"></p>
+        <p>Alamat : <input type="text" name="Alamat"></p>
+        <p> Sekolah : <input type="text" name="Sekolah"></p>
+        <p>
+          Jenis kelamn : 
+          <input type="checkbox" name="jk" value="laki-laki"/>laki-laki
+          <input type="checkbox" name="jk" value="perempuan"/>perempuan
+        </p>
+        <p>
+          Tujuan Universitas :
+          <input type="checkbox" name="undip"> undip
+          <input type="checkbox" name="ugm"> ugm
+          <input type="checkbox" name="uny"> uny
+          <!--gatau aku bingugn itu biat apa sih "name"nya, sama value-->
+        </p>
+        <p>
+          Kota asal :
+          <select>
+            <option>Jogja</option>
+            <option>SLEMAN</option>
+            <option>bantul</option>
+          </select>
+        <p>
+          Kenapa anda ingin memilih universitas tersebut?:<br>
+          <textarea rows="10" cols="60" placeholder="Tulis jawaban anda disini"></textarea>
+        </p>
+        <p><input type="submit" value="proses">
+        </p>
+      </fieldset>
+      <h2>Myfirst javascript</h2>
+      <p id="demo"></p>
+      <p id="Kamu"></p>
+      <script> document.getElementById("demo").innerHTML="Date";</script>
+      <button type="button" onclick="document.getElementById('Kamu').innerHTML=Date()"> Click here</button>
+      <script>
+        function light(sw) {
+          var pic;
+          if (sw==0) {
+            pic = "IMG_9680.png"
+          } else {
+            pic= "IMG_9681.png"
+          }
+          document.getElementById('myImage').src=pic;
+        }
+      </script>
+      <img id="myImage" src="IMG_9680.png" width="200" height="180">
+      <p>
+      <button type="button" onclick="light(1)">Light On</button>
+      <button type="button" onclick="light(0)">Light Off</button>
+      </p>
+    </form>
+
+   
+    
+
+</body>
+</html>

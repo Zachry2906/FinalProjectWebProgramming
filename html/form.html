@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="xxx.png">
+    <link rel="stylesheet" href="formcss.css">
+<title> Form </title>
+</head>
+<body>
+    <h1 style="color:rgb(77, 158, 206)";>HTML FORM ATRIBBUTE</h1>
+    <fieldset>
+    <form action="/action_page.php" oninput="x.value=parseInt(a.value)+parseInt(b.value)" target="_blank" method="post" autocomplete="on"> 
+        <legend>Baru belajar mempercantik</legend>
+            <input type="number" id="a" name="a" value="50">
+            <input type="number" id="b" name="b" value="50"> =
+             <output name="x" for="a b"></output>
+            <br><br>
+
+        <input list="members" name="members">
+        <datalist id="members">
+            <option value="Hyunjinn">
+            <option value="HeeJin">
+            <option value="JinSoul">
+            <option value="KimLip">
+            <option value="Yuna">
+        </datalist> <br>
+
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname" value="Zachy"><br>
+        <label for="lname">Last Name :</label><br>
+        <input type="text" id="lname" name="lname" value="Zachry"><br>
+
+        <label for="pokemon">Choose a pokemon :</label> <br>
+            <select id="pokemon" name="pokemon" >
+                <!--size="1" multiple gakepake -->
+            <option value="Kyorge">Kyorge</option>
+            <option value="Gardevoir" selected >Gardevoir</option>
+            <option value="HyunJin">HyunJin</option>
+            <option value="Darkai">Darkai</option>
+        </select> <br>
+
+        <label for="favcolor"> Select vaf color before submit</label>
+        <input type="color" id="favcolor" value="#ff0000"> <br>
+
+        <label for="email"> Enter your email : </label>
+        <input type="email" id="email" name="email"> <br>
+
+        <label for="birthdaytime">Birthday:</label>
+        <input type="datetime-local" id="birthdaytime" name="birthdaytime"> <br>
+
+        <label for="myfile">Select a file:</label>
+        <input type="file" id="myfile" name="myfile"> <br>
+
+        <label for="appt">Select a time:</label>
+        <input type="time" id="appt" name="appt"> <br>
+
+        <textarea name="massage" rows="5" cols="30"> Jelaskan Alasan Anda:</textarea><br>
+        <a href="https://youtu.be/vuTjweoIzBs">
+        <button type="button" onclick="alert('Kakangku')">Kakangku</button></a>
+        <input type="submit" value="submit">
+        <input type="reset">
+        </fieldset>
+    </form>
+    
+</body>
+</html>

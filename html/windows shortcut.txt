@@ -1,0 +1,51 @@
+Shortcut File Explorer
+Ketika berada di jendela explorer, beberapa shortcut keyboard yang berlaku di panel lain mungkin saja akan memicu fungsi yang berbeda pula. Jadi, harus hati-hati.
+
+Win + E: Membuka jendela File Explorer.
+End: Menuju akhir file.
+Shift + F10 : Membuka konteks menu Right click.
+Del: Menghapus file/folder.
+Shift + Delete : Menghapus tanpa memindahkannya ke Recycle Bin.
+Enter : Membuka file/folder.
+Alt + Enter : Membuka jendela Properties.
+Ctrl + X : Cut.
+Ctrl + C : Copy.
+Ctrl + V : Paste.
+Ctrl + W or Alt+F4 : Menutup jendela.
+Ctrl + Z : Undo.
+Ctrl + Y : Redo.
+Ctrl + A : Select all.
+F2 : Rename
+F5 : Refresh.
+F10 : Menampilkan Menu Bar.
+F11 : tampilan layar penuh.
+Home : Menuju awal file.
+Ctrl + N : Membuka jendela File explorer baru.
+Ctrl + Shift + N : Membuat folder baru.
+Alt + Shift +P : Menampilkan detail File lebih terprinci.
+Alt + P : Membuka panel Preview.
+Ctrl + Shift + 2 : Ukuran icon besar.
+Ctrl + Shift + 1 : Ukuran icon ekstra besar.
+Ctrl + Shift + 3 : Ukuran icon menengah.
+Ctrl + Shift + 4 : Ukuran icon kecil.
+Ctrl + Shift + 5 : Mengubah tampilan menjadi List.
+Ctrl + Shift + 6 : Mengubah tampilan menjadi Details.
+Ctrl + Shift + 7 : Mengubah tampilan menjadi Tiles.
+Ctrl + Shift + 8 : Mengubah tampilan menjadi Content.
+Alt + Right : Menuju ke folder yang dikunjungi setelahnya
+
+
+Shortcut Keyboard Umum Windows 10
+Windows + A: Membuka Action Centre.
+Windows + I: Membuka Pengaturan Windows.
+Windows + S: Membuka Cortana.
+Windows + C: Membuka Cortana dalam mode listening.
+Windows : Membuka Start Menu.
+Windows + Q : Melakukan Pencarian dengan suara.
+Windows + S : Melakukan Pencarian dan Cortana dengan ketikan keyboard.
+Windows + X : Membuka Power User.
+Windows + G : Membuka Game Bar.
+Windows + I : Membuka Settings.
+Windows + L : Mengunci Windows.
+Windows + D : Menampilkan Desktop
+Windows + E : Membuka File Explorer.
