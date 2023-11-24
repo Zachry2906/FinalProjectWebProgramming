@@ -34,9 +34,7 @@
                 Konsultasi
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">Identifikasi Masalah Anda</a></li>
               </ul>
             </li>
             <li class=" ms-2 nav-item dropdown">
@@ -44,16 +42,16 @@
                 Profil Dokter
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">Cari dokter</a></li>
+                <li><a class="dropdown-item" href="#">Rekomendasi dokter</a></li>
+                <li><a class="dropdown-item" href="dok.php">Daftar dokter</a></li>
               </ul>
             </li>
             <li class=" ms-2 nav-item">
               <a class="nav-link active text-dark" aria-current="page" href="#">Tentang Kami</a>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="tombol btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page">Reservasi Sekarang</a></button>
+              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page">Reservasi Sekarang</a></button>
             </li>
             <li class=" ms-2 nav-item">
               <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="pesananU.php">Jadwal Saya</a></button>
@@ -94,7 +92,7 @@
                 <input type="date" name="date" class="form-control mt-2 p-3" id="input2">
             </div>
             <div class="col col-sm-1 px-2 mb-2">
-              <button style="border-radius: 12px!important;" name="submit" class="tombol btn btn-dark bg-dark text-light pt-2 pb-2 ps-5 pe-5" style="font-size: 10px;">Cari Jadwal</button>
+              <button style="border-radius: 12px!important;" name="submit" class="btn btn-dark bg-dark text-light pt-2 pb-2 ps-5 pe-5" style="font-size: 10px;">Cari Jadwal</button>
           </div>
         </div>
       </div>
@@ -119,7 +117,7 @@
           </div>
           <div class="row d-flex align-items-center justify-content-center pb-5">
             <div class="col col-sm-2 mt-4"><a href="daftar.php"><button style="border-radius: 12px!important;" class="btn ps-4 pe-4 pt-3 pb-3 ms-3 border border-dark bg-light text-dark">Buat Akun</button></div></a>
-            <div class="col col-sm-2 mt-4"><button style="border-radius: 12px!important;" class="tombol btn pb-3 pt-3 ps-4 pe-4 border border-light bg-dark text-light">Pesan Sekarang!</button></div>
+            <div class="col col-sm-2 mt-4"><button style="border-radius: 12px!important;" class="btn pb-3 pt-3 ps-4 pe-4 border border-light bg-dark text-light">Pesan Sekarang!</button></div>
           </div>
         </div>
       <!-- Project -->

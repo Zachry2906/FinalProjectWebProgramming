@@ -48,7 +48,7 @@
               </ul>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page" href="#">Logout</a></button>
+              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page" href="logout.php">Logout</a></button>
             </li>
             <li class=" ms-2 nav-item">
               <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="daftar.php">Data Dokter</a></button>
@@ -69,6 +69,7 @@
       <th scope="col">Password</th>
       <th scope="col">Email</th>
       <th scope="col">Tanggal Lahir</th>
+      <th colspan="2">Aksi</th>
     </tr>
   </thead>
   <tbody>

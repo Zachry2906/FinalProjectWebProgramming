@@ -16,7 +16,7 @@ if(isset($_POST['login'])){
         if($cek > 0){
             header("location:admin/idxAdmin.php");
         }else{
-            header("location:login.php");
+            header("location:login.php?pesan=gagal");
         }
     }else if($orang == 2){
         $query = mysqli_query($connect, "SELECT * FROM user WHERE rek_medis='$norek' AND password='$pass'");
@@ -24,7 +24,7 @@ if(isset($_POST['login'])){
         if($cek > 0){
             header("location:idxUser.php");
         }else{
-            header("location:login.php");
+            header("location:login.php?pesan=gagal");
         }
     }else{
       header("location:login.php?pesan=gagal");
@@ -61,6 +61,14 @@ if(isset($_POST['login'])){
                   echo "<div class='alert alert-danger' role='alert'>
                   Perhatikan, role, username, dan password!
                 </div>";
+                } else if($pesan == "belum_login"){
+                  echo "<div class='alert alert-danger' role='alert'>
+                  Anda belum login!
+                </div>";
+                } else if($pesan == "logout"){
+                  echo "<div class='alert alert-success' role='alert'>
+                  Anda berhasil logout!
+                </div>";
                 }
                 ?>
                 <form action="" method="post">
@@ -91,7 +99,7 @@ if(isset($_POST['login'])){
             </div>
             <div class="col ms-5">
                 <img src="gambar/ms.jpg" alt="" srcset="">
-                <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="daftar.php">Belum punya akun?</a></p>
+                <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="daftar.php">Belum punya akun?</a><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="index.php">Kembali</a></p>
             </div>
     </div>
       <!-- Footer -->

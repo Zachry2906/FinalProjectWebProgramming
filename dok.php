@@ -66,24 +66,24 @@
     <section class=" mb-5 mt-5 pt-5" style="background-image: url(gambar/bg.jpg); background-size: cover;">
         <h1 class="mt-5" style="margin-left: 285px;">Meet Our Team</h1>
         <div class="carddd d-flex justify-content-center align-items-center mt-5" >
+        <?php
+            include 'koneksi.php';
+            $no = 1;
+            $data = mysqli_query($connect,"select * from dokter");
+            while($d = mysqli_fetch_array($data)){
+            ?>
             <div class="card ms-5" style="width: 18rem; border-radius: 40px!important">
                 <img src="gambar/dok1.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p class="mb-0">Nama : <?= $d["nama"]?></p>
+                  <p class="mb-0">Pengalaman : <?= $d["pengalaman"]?> Tahun</p>
+                  <p class="mb-0">Spesialis : <?= $d["spesialis"]?></p>
+                  <p class="mb-0">Harga : <?= $d["harga"]?></p>
                 </div>
               </div>
-            <div class="card ms-5" style="width: 18rem; border-radius: 40px!important">
-                <img src="gambar/dok1.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-            <div class="card ms-5" style="width: 18rem; border-radius: 40px!important">
-                <img src="gambar/dok1.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
+            <?php
+            }
+            ?>
         </div>
     <!-- HERO GRID -->
     <br><br><br>

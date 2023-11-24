@@ -1,19 +1,47 @@
 <?php
 
 include "../koneksi.php";
+
 if (isset($_GET['rek_medis'])) {
     $rek_medis = $_GET['rek_medis'];
     $query = mysqli_query($connect, "SELECT * FROM user WHERE rek_medis='$rek_medis'");
     $data = mysqli_fetch_array($query);
     $cek = 5;
-    $form = "user";
 } else if (isset($_GET['id_dokter'])) {
     $id_dokter = $_GET['id_dokter'];
     $query = mysqli_query($connect, "SELECT * FROM dokter WHERE id_dokter='$id_dokter'");
     $data = mysqli_fetch_array($query);
     $cek = 6;
-    $formm = "dokter";
 }
+
+if (isset($_POST['user'])) {
+    $rek_medis = $_POST['rek_medis'];
+    $nama = $_POST['nama'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+    $tgl = $_POST['tgl'];
+
+    $query = mysqli_query($connect, "UPDATE user SET nama='$nama', password='$password', email='$email', tanggal_lahir='$tgl' WHERE rek_medis='$rek_medis'");
+    if ($query) {
+        echo "<script>alert('Data berhasil diubah!'); window.location.href='DPasien.php';</script>";
+    } else {
+        echo "<script>alert('Data gagal diubah!'); window.location.href='DPasien.php';</script>";
+    }
+} else if (isset($_POST['dokter'])) {
+    $nama = $_POST['nama'];
+    $spesialis = $_POST['spesialis'];
+    $deskripsi = $_POST['deskripsi'];
+    $ruang = $_POST['ruang'];
+    $harga = $_POST['harga'];
+
+    $query = mysqli_query($connect, "UPDATE dokter SET nama='$nama', spesialis='$spesialis', deskripsi='$deskripsi', ruangan='$ruang', harga='$harga' WHERE id_dokter='$id_dokter'");
+    if ($query) {
+        echo "<script>alert('Data berhasil diubah!'); window.location.href='DDokter.php';</script>";
+    } else {
+        echo "<script>alert('Data gagal diubah!'); window.location.href='DDokter.php';</script>";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,41 +68,53 @@ if (isset($_GET['rek_medis'])) {
                 <h1 class="mb-5"><b>Halaman Edit</b></h1>
                 <form action="" method="post">
                     <div class="mb-4 row">
-                        <label for="inputUsername" class="col-sm-2 col-form-label"><i class="bi bi-card-heading"></i></label>
+                        <label for="inputUsername" class="col-sm-2 col-form-label"><?=($cek <= 5)?"No Rek Medis":"Pengalaman"; ?></label>
                         <div class="col-sm-10">
-                          <input type="number" class="form-control border border-none" name="norek" placeholder="<?= ($cek <= 5)? $data['rek_medis']: $data['id_dokter'];?>">
+                          <input type="number" class="form-control border border-none" name="<?=($cek <= 5)?"rek_medis":"pengalaman"; ?>" placeholder="<?= ($cek <= 5)? $data['rek_medis']: $data['pengalaman'];?>">
                         </div>
                       </div>
                     <div class="mb-4 row">
-                        <label for="inputUsername" class="col-sm-2 col-form-label"><i class="bi bi-person"></i></label>
+                        <label for="inputUsername" class="col-sm-2 col-form-label"><?="Nama"; ?></i></label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control border border-none" name="nama" placeholder="<?=$data['nama'];?>">
                         </div>
                       </div>
                       <div class="mb-4 row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label"><i class="bi bi-envelope"></i></label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label"><?=($cek <= 5)?"Password":"Spesialis"; ?></label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="email" placeholder="<?=($cek <= 5)? $data['password']: $data['spesialis'];?>">
+                          <input type="text" class="form-control" name="<?=($cek <= 5)?"password":"spesialis"; ?>" placeholder="<?=($cek <= 5)? $data['password']: $data['spesialis'];?>">
                         </div>
                       </div>
                       <div class="mb-4 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label"><i class="bi bi-lock"></i></label>
+                        <label for="inputPassword" class="col-sm-2 col-form-label"><?=($cek <= 5)?"Email":"Deskripsi"; ?></label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="pass" placeholder="<?=($cek <= 5)? $data['email']: $data['deskripsi'];?>">
+                          <input type="text" class="form-control" name="<?=($cek <= 5)?"email":"deskripsi"; ?>" placeholder="<?=($cek <= 5)? $data['email']: $data['deskripsi'];?>">
                         </div>
                       </div>
                       <div class="mb-4 row">
-                        <label for="inputConfirm" class="col-sm-2 col-form-label"><i class="bi bi-calendar"></i></label>
+                        <label for="inputConfirm" class="col-sm-2 col-form-label"><?=($cek <= 5)?"Tanggal Lahir":"Ruang"; ?></label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="tgl" placeholder="<?=($cek <= 5)? $data['tanggal_lahir']: $data['ruangan'];?>">
+                          <input type="text" class="form-control" name="<?=($cek <= 5)?"tgl":"ruang"; ?>" placeholder="<?=($cek <= 5)? $data['tanggal_lahir']: $data['ruangan'];?>">
                         </div>
                       </div>
-                      <button type="submit" name="<?=($cek <= 5)?$form:$formm; ?>" class="btn bg-dark text-light">Submit</button>
+                      <?php
+                      if ($cek <= 5) {
+                        $dolar = "maan";
+                      } else {
+                        echo '<div class="mb-4 row">
+                        <label for="inputConfirm" class="col-sm-2 col-form-label">Harga</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="harga" placeholder="'.$data['harga'].'">
+                        </div>
+                      </div>';
+                      }
+                      ?>
+                      <button type="submit" name="<?=($cek <= 5)?"user":"dokter"; ?>" class="btn bg-dark text-light">Edit</button>
                 </form>
             </div>
             <div class="col ms-5">
                 <img src="../gambar/tts.png" class="ms-5" alt="" srcset="">
-                <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="login.php">Saya Sudah Punya Akun</a></p>
+                <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="idxAdmin.php">Kembali</a></p>
             </div>
     </div>
       <!-- Footer -->

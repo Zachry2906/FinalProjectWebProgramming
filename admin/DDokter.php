@@ -48,10 +48,10 @@
               </ul>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page" href="#">Logout</a></button>
+              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page" href="logout.php">Logout</a></button>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="daftar.php">Data Dokter</a></button>
+              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="tambahDokter.php">Tambah Dokter</a></button>
             </li>
           </ul>
         </div>
@@ -64,11 +64,13 @@
   <thead>
     <tr>
       <th scope="col">No</th>
+      <th scope="col">Pengalaman</th>
       <th scope="col">Nama</th>
-      <th scope="col">No Rekam Medis</th>
-      <th scope="col">Password</th>
-      <th scope="col">Email</th>
-      <th scope="col">Tanggal Lahir</th>
+      <th scope="col">Spesialis</th>
+      <th scope="col">Deskripsi</th>
+      <th scope="col">Ruangan</th>
+      <th scope="col">Harga</th>
+      <th colspan="2">Aksi</th>
     </tr>
   </thead>
   <tbody>
@@ -81,12 +83,12 @@ while($d = mysqli_fetch_array($data)){
 ?>
     <tr>
       <th scope="row"><?php echo $no++; ?></th>
-      <td><?php echo $d['id_dokter']; ?></td>
       <td><?php echo $d['pengalaman']; ?></td>
         <td><?php echo $d['nama']; ?></td>
       <td><?php echo $d['spesialis']; ?></td>
       <td><?php echo $d['deskripsi']; ?></td>
       <td><?php echo $d['ruangan']; ?></td>
+      <td><?php echo $d['harga']; ?></td>
       <td><button type='button' class='btn btn-outline-primary'><a style='text-decoration: none; color:#465771;' href='update.php?id_dokter=<?=$d["id_dokter"]?>'>Edit</a></button></td>
         <td><button type='button' class='btn btn-outline-danger'><a style='text-decoration: none;color:#ce3046;' href='hapus.php?id_dokter=<?=$d["id_dokter"]?>'>Hapus</a></button></td>
     </tr>
