@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
     <link rel="icon" type="image/x-icon" href="img/icon.png" />
     <title>Selamat Datang!</title>
   </head>
@@ -26,36 +26,32 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
           <ul class="navbar-nav text-center d-flex align-items-center">
             <li class="nav-item ">
-              <img src="gambar/sj.png" alt="" srcset=""><a class="navbar-brand" href="#"></a>
+              <img src="../gambar/sj.png" alt="" srcset=""><a class="navbar-brand" href="#"></a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-dark ms-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Konsultasi
+                Data
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="DDokter.php">Data Dokter</a></li>
+                <li><a class="dropdown-item" href="DPasien.php">Data Pasien</a></li>
+                <li><a class="dropdown-item" href="DRiwayat.php">Riwayat Data</a></li>
               </ul>
             </li>
             <li class=" ms-2 nav-item dropdown">
               <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Profil Dokter
+              Reservasi
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">Data Reservasi</a></li>
+                <li><a class="dropdown-item" href="#">Riwayat Reservasi</a></li>
               </ul>
             </li>
             <li class=" ms-2 nav-item">
-              <a class="nav-link active text-dark" aria-current="page" href="#">Tentang Kami</a>
+              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page" href="#">Logout</a></button>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page" href="#">Reservasi Sekarang</a></button>
-            </li>
-            <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="daftar.php">Join Now</a></button>
+              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="daftar.php">Data Dokter</a></button>
             </li>
           </ul>
         </div>
@@ -63,7 +59,7 @@
     </nav>
     <!-- Navbar -->
     <!-- HERO GRID -->
-    <section class=" mb-5 mt-5 pt-5" style="background-image: url(gambar/bg.jpg); background-size: cover;">
+    <section class=" mb-5 mt-5 pt-5" style="background-image: url(../gambar/bg.jpg); background-size: cover;">
     <div class=" ms-5 row mt-5">
       <div class="ms-5 col col-md-5 mt-5">
         <h1 class="mt-2">Jujur Pada <b>Diri Sendiri</b> Dan</h1>
@@ -72,7 +68,7 @@
         <a href="daftar.php"><button style="border-radius: 12px!important;" class="btn mt-2 btn-dark bg-dark text-light pt-3 pb-3 ps-5 pe-5">Join Now</button></a>
       </div>
       <div class="col m-5 mt-5">
-       <img src="gambar/hero.png" alt="" srcset="">
+       <img src="../gambar/hero.png" alt="" srcset="">
       </div>
     </div>
     <!-- HERO GRID -->
@@ -197,7 +193,7 @@
       <!-- Footer -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-      <script src="script.js"></script>
+      <script src="../script.js"></script>
     </div>
   </body>
 </html>

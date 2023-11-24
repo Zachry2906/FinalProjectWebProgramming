@@ -1,6 +1,8 @@
 <?php
+$pesan = isset($_GET['pesan']) ? $_GET['pesan'] : "";
 
-if(isset($_POST['submit'])){
+
+if(isset($_POST['login'])){
 
     include 'koneksi.php';
 
@@ -12,20 +14,20 @@ if(isset($_POST['submit'])){
         $query = mysqli_query($connect, "SELECT * FROM admin WHERE username='$norek' AND pass='$pass'");
         $cek = mysqli_num_rows($query);
         if($cek > 0){
-            header("location:admin.php");
+            header("location:admin/idxAdmin.php");
         }else{
-            header("location:login2.php");
+            header("location:login.php");
         }
     }else if($orang == 2){
         $query = mysqli_query($connect, "SELECT * FROM user WHERE rek_medis='$norek' AND password='$pass'");
         $cek = mysqli_num_rows($query);
         if($cek > 0){
-            header("location:user.php");
+            header("location:idxUser.php");
         }else{
-            header("location:login2.php");
+            header("location:login.php");
         }
     }else{
-        header("location:login2.php");
+      header("location:login.php?pesan=gagal");
     }
 }
 
@@ -51,9 +53,16 @@ if(isset($_POST['submit'])){
   </head>
   <body class="overflow-x-hidden" style="height: 100vh;">
     <div class="container d-flex align-items-center justify-content-center" style="height: 100%;">
-        <div class="row shadow-lg h-75 mx-auto d-flex align-items-center justify-content-center" style="border-radius: 15px; width: 80vw;background-image: url(gambar/bg.jpg); background-size: cover;">
+        <div id="login" class="row shadow-lg h-75 mx-auto d-flex align-items-center justify-content-center" style="border-radius: 15px; width: 80vw;background-image: url(gambar/bg3.jpg); background-size: cover;">
             <div class="col ms-5">
                 <h1 class="mb-5"><b>Login</b></h1>
+                <?php
+                if($pesan == "gagal"){
+                  echo "<div class='alert alert-danger' role='alert'>
+                  Perhatikan, role, username, dan password!
+                </div>";
+                }
+                ?>
                 <form action="" method="post">
                     <div class="mb-4 row">
                         <label for="inputUsername" class="col-sm-2 col-form-label"><i class="bi bi-person"></i></label>
@@ -77,12 +86,12 @@ if(isset($_POST['submit'])){
                           <input type="password" class="form-control" name="pass" placeholder="Password">
                         </div>
                       </div>
-                      <button type="submit" name="submit" class="btn bg-dark text-light">Submit</button>
+                      <button type="submit" name="login" class="btn bg-dark text-light">Submit</button>
                 </form>
             </div>
             <div class="col ms-5">
                 <img src="gambar/ms.jpg" alt="" srcset="">
-                <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="login.html">Belum punya akun?</a></p>
+                <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="daftar.php">Belum punya akun?</a></p>
             </div>
     </div>
       <!-- Footer -->

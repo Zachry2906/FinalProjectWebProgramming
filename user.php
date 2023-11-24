@@ -55,7 +55,7 @@
               <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page" href="#">Reservasi Sekarang</a></button>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="login.html">Join Now</a></button>
+              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="daftar.php">Join Now</a></button>
             </li>
           </ul>
         </div>
@@ -69,7 +69,7 @@
         <h1 class="mt-2">Jujur Pada <b>Diri Sendiri</b> Dan</h1>
         <h1 class="mt-3">Temukan Solusi Bersama <b>Para Ahli</b></h1>
         <p class="mt-3">Kami paham akan pentingnya kesehatan mental rakyat Indonesia. Kami ada untuk memberikan akses yang mudah kepada Psikiater dan Psikolog profesional.</p>
-        <a href="login.html"><button style="border-radius: 12px!important;" class="btn mt-2 btn-dark bg-dark text-light pt-3 pb-3 ps-5 pe-5">Join Now</button></a>
+        <a href="daftar.php"><button style="border-radius: 12px!important;" class="btn mt-2 btn-dark bg-dark text-light pt-3 pb-3 ps-5 pe-5">Join Now</button></a>
       </div>
       <div class="col m-5 mt-5">
        <img src="gambar/hero.png" alt="" srcset="">
@@ -117,7 +117,7 @@
             </div>
           </div>
           <div class="row d-flex align-items-center justify-content-center pb-5">
-            <div class="col col-sm-2 mt-4"><a href="login.html"><button style="border-radius: 12px!important;" class="btn ps-4 pe-4 pt-3 pb-3 ms-3 border border-dark bg-light text-dark">Buat Akun</button></div></a>
+            <div class="col col-sm-2 mt-4"><a href="daftar.php"><button style="border-radius: 12px!important;" class="btn ps-4 pe-4 pt-3 pb-3 ms-3 border border-dark bg-light text-dark">Buat Akun</button></div></a>
             <div class="col col-sm-2 mt-4"><button style="border-radius: 12px!important;" class="btn pb-3 pt-3 ps-4 pe-4 border border-light bg-dark text-light">Pesan Sekarang!</button></div>
           </div>
         </div>

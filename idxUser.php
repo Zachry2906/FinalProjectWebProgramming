@@ -16,6 +16,7 @@
     <title>Selamat Datang!</title>
   </head>
   <body class="overflow-x-hidden">
+  <div style="bottom:10px; right:10px" id="toasts" class="position-fixed d-flex flex-column align-items-end"></div>
     <div id="home"></div>
     <!-- Navbar -->
     <nav id="nav1" class="navbar navbar-expand-lg bg-body-tertiary fixed-top pt-3">
@@ -52,10 +53,10 @@
               <a class="nav-link active text-dark" aria-current="page" href="#">Tentang Kami</a>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page" href="#">Reservasi Sekarang</a></button>
+              <button style="border-radius: 12px!important;" class="tombol btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page">Reservasi Sekarang</a></button>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="daftar.php">Join Now</a></button>
+              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="pesananU.php">Jadwal Saya</a></button>
             </li>
           </ul>
         </div>
@@ -78,7 +79,7 @@
     <!-- HERO GRID -->
     <br><br><br>
       <!-- inputGAMBAR -->
-      <form class="p-4 card-body mt-5 mx-auto shadow-lg" style="width: 50vw; border-radius: 12px!important; margin-bottom: 140px;" method="post" action="" >
+      <div class="p-4 card-body mt-5 mx-auto shadow-lg" style="width: 50vw; border-radius: 12px!important; margin-bottom: 140px;">
         <div class="row">
             <div class="col ms-5 col-sm-4 px-2 mb-2 w">
                 <label for="input1" class="ms-2 position-absolute" style="margin-top: -0.25rem !important">
@@ -93,10 +94,10 @@
                 <input type="date" name="date" class="form-control mt-2 p-3" id="input2">
             </div>
             <div class="col col-sm-1 px-2 mb-2">
-              <button style="border-radius: 12px!important;" name="submit" type="submit" class="btn btn-dark bg-dark text-light pt-2 pb-2 ps-5 pe-5" style="font-size: 10px;">Cari Jadwal</button>
+              <button style="border-radius: 12px!important;" name="submit" class="tombol btn btn-dark bg-dark text-light pt-2 pb-2 ps-5 pe-5" style="font-size: 10px;">Cari Jadwal</button>
           </div>
         </div>
-      </form>
+      </div>
     </section>
       <!-- input -->
       <!-- Project -->
@@ -118,12 +119,13 @@
           </div>
           <div class="row d-flex align-items-center justify-content-center pb-5">
             <div class="col col-sm-2 mt-4"><a href="daftar.php"><button style="border-radius: 12px!important;" class="btn ps-4 pe-4 pt-3 pb-3 ms-3 border border-dark bg-light text-dark">Buat Akun</button></div></a>
-            <div class="col col-sm-2 mt-4"><button style="border-radius: 12px!important;" class="btn pb-3 pt-3 ps-4 pe-4 border border-light bg-dark text-light">Pesan Sekarang!</button></div>
+            <div class="col col-sm-2 mt-4"><button style="border-radius: 12px!important;" class="tombol btn pb-3 pt-3 ps-4 pe-4 border border-light bg-dark text-light">Pesan Sekarang!</button></div>
           </div>
         </div>
       <!-- Project -->
+    </div>
       <!-- Footer -->
-      <div class="px-3 pb-5 footer" style="background-color: #182831!important;">
+      <div class="px-3 pb-5 footer" style="background-color: #182831!important;" style="bottom: 10px; right: 10px;">
         <div class="container">
           <div class="row ">
             <div class="col-lg-4 col-xs-12 mt-5">
@@ -197,7 +199,7 @@
       <!-- Footer -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-      <script src="script.js"></script>
+      <script src="sss.js"></script>
     </div>
   </body>
 </html>

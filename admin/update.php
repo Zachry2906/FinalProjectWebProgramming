@@ -1,3 +1,21 @@
+<?php
+
+include "../koneksi.php";
+if (isset($_GET['rek_medis'])) {
+    $rek_medis = $_GET['rek_medis'];
+    $query = mysqli_query($connect, "SELECT * FROM user WHERE rek_medis='$rek_medis'");
+    $data = mysqli_fetch_array($query);
+    $cek = 5;
+    $form = "user";
+} else if (isset($_GET['id_dokter'])) {
+    $id_dokter = $_GET['id_dokter'];
+    $query = mysqli_query($connect, "SELECT * FROM dokter WHERE id_dokter='$id_dokter'");
+    $data = mysqli_fetch_array($query);
+    $cek = 6;
+    $formm = "dokter";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,46 +35,46 @@
   </head>
   <body class="overflow-x-hidden" style="height: 100vh;">
     <div class="container d-flex align-items-center justify-content-center" style="height: 100%;">
-        <div class="row shadow-lg h-75 mx-auto d-flex align-items-center justify-content-center" style="border-radius: 15px; width: 80vw;background-image: url(gambar/bg.jpg); background-size: cover;">
+        <div id="daftar" class="row shadow-lg h-75 mx-auto d-flex align-items-center justify-content-center" style="border-radius: 15px; width: 80vw;background-image: url(gambar/bg2.jpg); background-size: cover;">
             <div class="col ms-5">
-                <h1 class="mb-5"><b>Sign Up</b></h1>
+                <h1 class="mb-5"><b>Halaman Edit</b></h1>
                 <form action="" method="post">
                     <div class="mb-4 row">
                         <label for="inputUsername" class="col-sm-2 col-form-label"><i class="bi bi-card-heading"></i></label>
                         <div class="col-sm-10">
-                          <input type="number" class="form-control border border-none" name="norek" placeholder="No Rekam Medis">
+                          <input type="number" class="form-control border border-none" name="norek" placeholder="<?= ($cek <= 5)? $data['rek_medis']: $data['id_dokter'];?>">
                         </div>
                       </div>
                     <div class="mb-4 row">
                         <label for="inputUsername" class="col-sm-2 col-form-label"><i class="bi bi-person"></i></label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control border border-none" name="nama" placeholder="Nama">
+                          <input type="text" class="form-control border border-none" name="nama" placeholder="<?=$data['nama'];?>">
                         </div>
                       </div>
                       <div class="mb-4 row">
                         <label for="inputEmail" class="col-sm-2 col-form-label"><i class="bi bi-envelope"></i></label>
                         <div class="col-sm-10">
-                          <input type="Email" class="form-control" name="email" placeholder="Email">
+                          <input type="text" class="form-control" name="email" placeholder="<?=($cek <= 5)? $data['password']: $data['spesialis'];?>">
                         </div>
                       </div>
                       <div class="mb-4 row">
                         <label for="inputPassword" class="col-sm-2 col-form-label"><i class="bi bi-lock"></i></label>
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" name="pass" placeholder="Password">
+                          <input type="text" class="form-control" name="pass" placeholder="<?=($cek <= 5)? $data['email']: $data['deskripsi'];?>">
                         </div>
                       </div>
                       <div class="mb-4 row">
                         <label for="inputConfirm" class="col-sm-2 col-form-label"><i class="bi bi-calendar"></i></label>
                         <div class="col-sm-10">
-                          <input type="date" class="form-control" name="tgl" placeholder="Tanggal Lahir">
+                          <input type="text" class="form-control" name="tgl" placeholder="<?=($cek <= 5)? $data['tanggal_lahir']: $data['ruangan'];?>">
                         </div>
                       </div>
-                      <button type="submit" class="btn bg-dark text-light">Submit</button>
+                      <button type="submit" name="<?=($cek <= 5)?$form:$formm; ?>" class="btn bg-dark text-light">Submit</button>
                 </form>
             </div>
             <div class="col ms-5">
-                <img src="gambar/ts.png" alt="" srcset="">
-                <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="login2.html">Saya Sudah Punya Akun</a></p>
+                <img src="../gambar/tts.png" class="ms-5" alt="" srcset="">
+                <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="login.php">Saya Sudah Punya Akun</a></p>
             </div>
     </div>
       <!-- Footer -->

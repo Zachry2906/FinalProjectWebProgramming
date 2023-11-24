@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
     <link rel="icon" type="image/x-icon" href="img/icon.png" />
     <title>Selamat Datang!</title>
   </head>
@@ -26,36 +26,32 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
           <ul class="navbar-nav text-center d-flex align-items-center">
             <li class="nav-item ">
-              <img src="gambar/sj.png" alt="" srcset=""><a class="navbar-brand" href="#"></a>
+              <img src="../gambar/sj.png" alt="" srcset=""><a class="navbar-brand" href="#"></a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-dark ms-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Konsultasi
+                Data
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="DDokter.php">Data Dokter</a></li>
+                <li><a class="dropdown-item" href="DPasien.php">Data Pasien</a></li>
+                <li><a class="dropdown-item" href="DRiwayat.php">Riwayat Data</a></li>
               </ul>
             </li>
             <li class=" ms-2 nav-item dropdown">
               <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Profil Dokter
+              Reservasi
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">Data Reservasi</a></li>
+                <li><a class="dropdown-item" href="#">Riwayat Reservasi</a></li>
               </ul>
             </li>
             <li class=" ms-2 nav-item">
-              <a class="nav-link active text-dark" aria-current="page" href="#">Tentang Kami</a>
+              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page" href="#">Logout</a></button>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page" href="#">Reservasi Sekarang</a></button>
-            </li>
-            <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="daftar.php">Join Now</a></button>
+              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="daftar.php">Data Dokter</a></button>
             </li>
           </ul>
         </div>
@@ -63,65 +59,48 @@
     </nav>
     <!-- Navbar -->
     <!-- HERO GRID -->
-    <section class=" mb-5 mt-5 pt-5" style="background-image: url(gambar/bg.jpg); background-size: cover;">
-    <div class=" ms-5 row mt-5">
-      <div class="ms-5 col col-md-5 mt-5">
-        <h1 class="mt-2">Jujur Pada <b>Diri Sendiri</b> Dan</h1>
-        <h1 class="mt-3">Temukan Solusi Bersama <b>Para Ahli</b></h1>
-        <p class="mt-3">Kami paham akan pentingnya kesehatan mental rakyat Indonesia. Kami ada untuk memberikan akses yang mudah kepada Psikiater dan Psikolog profesional.</p>
-        <a href="daftar.php"><button style="border-radius: 12px!important;" class="btn mt-2 btn-dark bg-dark text-light pt-3 pb-3 ps-5 pe-5">Join Now</button></a>
-      </div>
-      <div class="col m-5 mt-5">
-       <img src="gambar/hero.png" alt="" srcset="">
-      </div>
-    </div>
+    <section class=" mb-5 mt-5 pt-5 d-flex justify-content-center align-items-center" style="background-image: url(../gambar/bg.jpg); background-size: cover;">
+    <table class="table table-bordered table-sm ms-5 w-75 border-dark mt-5 text-center">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Nama</th>
+      <th scope="col">No Rekam Medis</th>
+      <th scope="col">Password</th>
+      <th scope="col">Email</th>
+      <th scope="col">Tanggal Lahir</th>
+    </tr>
+  </thead>
+  <tbody>
+<?php
+
+include '../koneksi.php';
+$no = 1;
+$data = mysqli_query($connect,"select * from dokter");
+while($d = mysqli_fetch_array($data)){
+?>
+    <tr>
+      <th scope="row"><?php echo $no++; ?></th>
+      <td><?php echo $d['id_dokter']; ?></td>
+      <td><?php echo $d['pengalaman']; ?></td>
+        <td><?php echo $d['nama']; ?></td>
+      <td><?php echo $d['spesialis']; ?></td>
+      <td><?php echo $d['deskripsi']; ?></td>
+      <td><?php echo $d['ruangan']; ?></td>
+      <td><button type='button' class='btn btn-outline-primary'><a style='text-decoration: none; color:#465771;' href='update.php?id_dokter=<?=$d["id_dokter"]?>'>Edit</a></button></td>
+        <td><button type='button' class='btn btn-outline-danger'><a style='text-decoration: none;color:#ce3046;' href='hapus.php?id_dokter=<?=$d["id_dokter"]?>'>Hapus</a></button></td>
+    </tr>
+<?php
+}
+?>
+
+
+  </tbody>
+</table>
+    </section>
     <!-- HERO GRID -->
     <br><br><br>
-      <!-- inputGAMBAR -->
-      <form class="p-4 card-body mt-5 mx-auto shadow-lg" style="width: 50vw; border-radius: 12px!important; margin-bottom: 140px;" method="post" action="" >
-        <div class="row">
-            <div class="col ms-5 col-sm-4 px-2 mb-2 w">
-                <label for="input1" class="ms-2 position-absolute" style="margin-top: -0.25rem !important">
-                    <span class="h6 small bg-white text-muted px-1">Spesialis</span>
-                </label>
-                <input type="text" name="specialist" class="form-control mt-2 p-3" id="input1">
-            </div>
-            <div class="col col-sm-4 px-2 mb-2">
-                <label for="input2" class="ms-2 position-absolute" style="margin-top: -0.25rem !important">
-                    <span class="h6 small bg-white text-muted px-1">Hari</span>
-                </label>
-                <input type="date" name="date" class="form-control mt-2 p-3" id="input2">
-            </div>
-            <div class="col col-sm-1 px-2 mb-2">
-              <button style="border-radius: 12px!important;" name="submit" type="submit" class="btn btn-dark bg-dark text-light pt-2 pb-2 ps-5 pe-5" style="font-size: 10px;">Cari Jadwal</button>
-          </div>
-        </div>
-      </form>
-    </section>
-      <!-- input -->
-      <!-- Project -->
-        <div class="bg-primary w-100 mt-5 pb-5">
-          <h1 class="mx-auto text-center pt-5">Apa Yang Kami Tawarkan?</h1>
-          <div class="row mt-5 d-flex justify-content-center grid gap-0 col-gap-5">
-            <div class="col col-md-3 mt-5 pb-5">
-              <h4>Identifikasi masalah anda</h4><br>
-              <p style="font-size: 12px;">A pay as-you-go solution for: pallet storage, inventory management, fulfillment(e.g. pick and pack), in/out-bound solutions, and more.</p>
-            </div>
-            <div class="col col-md-3 mt-5 pb-5">
-              <h4>Temukan orang yang tepat</h4><br>
-              <p style="font-size: 12px;">Search and compare the best shipping rates among dozens of trusted logistic partners for the last mile delivery and freight.</p>
-            </div>
-            <div class="col col-md-3 mt-5 pb-5">
-            <h4>Reservasi</h4><br>
-            <p style="font-size: 12px;">Our packaging solutions are optimized for each individual customer and are selected based on on the customer’s specific needs and requirements.</p>
-            </div>
-          </div>
-          <div class="row d-flex align-items-center justify-content-center pb-5">
-            <div class="col col-sm-2 mt-4"><a href="daftar.php"><button style="border-radius: 12px!important;" class="btn ps-4 pe-4 pt-3 pb-3 ms-3 border border-dark bg-light text-dark">Buat Akun</button></div></a>
-            <div class="col col-sm-2 mt-4"><button style="border-radius: 12px!important;" class="btn pb-3 pt-3 ps-4 pe-4 border border-light bg-dark text-light">Pesan Sekarang!</button></div>
-          </div>
-        </div>
-      <!-- Project -->
+
       <!-- Footer -->
       <div class="px-3 pb-5 footer" style="background-color: #182831!important;">
         <div class="container">
@@ -197,7 +176,7 @@
       <!-- Footer -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-      <script src="script.js"></script>
+      <script src="../script.js"></script>
     </div>
   </body>
 </html>
