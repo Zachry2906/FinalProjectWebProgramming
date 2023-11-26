@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['status'])) {
+    header("location:login.php?pesan=belum_login");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,7 +60,7 @@
               <a class="nav-link active text-dark" aria-current="page" href="#">Tentang Kami</a>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page">Reservasi Sekarang</a></button>
+              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" href="admin/logout.php" aria-current="page">Logout</a></button>
             </li>
             <li class=" ms-2 nav-item">
               <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="pesananU.php">Jadwal Saya</a></button>
@@ -68,7 +77,7 @@
         <h1 class="mt-2">Jujur Pada <b>Diri Sendiri</b> Dan</h1>
         <h1 class="mt-3">Temukan Solusi Bersama <b>Para Ahli</b></h1>
         <p class="mt-3">Kami paham akan pentingnya kesehatan mental rakyat Indonesia. Kami ada untuk memberikan akses yang mudah kepada Psikiater dan Psikolog profesional.</p>
-        <a href="daftar.php"><button style="border-radius: 12px!important;" class="btn mt-2 btn-dark bg-dark text-light pt-3 pb-3 ps-5 pe-5">Join Now</button></a>
+        <a href="daftar.php"><button style="border-radius: 12px!important;" class="btn mt-2 btn-dark bg-dark text-light pt-3 pb-3 ps-5 pe-5">Reservasi Sekarang</button></a>
       </div>
       <div class="col m-5 mt-5">
        <img src="gambar/hero.png" alt="" srcset="">
@@ -80,10 +89,11 @@
       <div class="p-4 card-body mt-5 mx-auto shadow-lg" style="width: 50vw; border-radius: 12px!important; margin-bottom: 140px;">
         <div class="row">
             <div class="col ms-5 col-sm-4 px-2 mb-2 w">
+              <form action="caridok.php" method="post">
                 <label for="input1" class="ms-2 position-absolute" style="margin-top: -0.25rem !important">
                     <span class="h6 small bg-white text-muted px-1">Spesialis</span>
                 </label>
-                <input type="text" name="specialist" class="form-control mt-2 p-3" id="input1">
+                <input type="text" name="special" class="form-control mt-2 p-3" id="input1">
             </div>
             <div class="col col-sm-4 px-2 mb-2">
                 <label for="input2" class="ms-2 position-absolute" style="margin-top: -0.25rem !important">
@@ -92,8 +102,9 @@
                 <input type="date" name="date" class="form-control mt-2 p-3" id="input2">
             </div>
             <div class="col col-sm-1 px-2 mb-2">
-              <button style="border-radius: 12px!important;" name="submit" class="btn btn-dark bg-dark text-light pt-2 pb-2 ps-5 pe-5" style="font-size: 10px;">Cari Jadwal</button>
+              <button style="border-radius: 12px!important;"type="submit" name="submit" class="btn btn-dark bg-dark text-light pt-2 pb-2 ps-5 pe-5" style="font-size: 10px;">Cari Jadwal</button>
           </div>
+          </form>
         </div>
       </div>
     </section>

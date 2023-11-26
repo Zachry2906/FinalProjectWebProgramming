@@ -1,4 +1,5 @@
 <?php
+session_start();
 $pesan = isset($_GET['pesan']) ? $_GET['pesan'] : "";
 
 
@@ -14,6 +15,7 @@ if(isset($_POST['login'])){
         $query = mysqli_query($connect, "SELECT * FROM admin WHERE username='$norek' AND pass='$pass'");
         $cek = mysqli_num_rows($query);
         if($cek > 0){
+            $_SESSION['status'] = "admin";
             header("location:admin/idxAdmin.php");
         }else{
             header("location:login.php?pesan=gagal");
@@ -22,6 +24,11 @@ if(isset($_POST['login'])){
         $query = mysqli_query($connect, "SELECT * FROM user WHERE rek_medis='$norek' AND password='$pass'");
         $cek = mysqli_num_rows($query);
         if($cek > 0){
+          $_SESSION['status'] = "login";
+          $_SESSION['norek'] = $norek;
+          $_SESSION['nama'] = $data['nama'];
+          $_SESSION['email'] = $data['email'];
+          $_SESSION['tgl'] = $data['tanggal_lahir'];
             header("location:idxUser.php");
         }else{
             header("location:login.php?pesan=gagal");
@@ -69,6 +76,10 @@ if(isset($_POST['login'])){
                   echo "<div class='alert alert-success' role='alert'>
                   Anda berhasil logout!
                 </div>";
+                } else if($pesan == "bukanadmin"){
+                  echo "<div class='alert alert-danger' role='alert'>
+                  Anda bukan admin!
+                </div>";
                 }
                 ?>
                 <form action="" method="post">
@@ -99,7 +110,7 @@ if(isset($_POST['login'])){
             </div>
             <div class="col ms-5">
                 <img src="gambar/ms.jpg" alt="" srcset="">
-                <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="daftar.php">Belum punya akun?</a><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="index.php">Kembali</a></p>
+                <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="daftar.php">Belum punya akun?</a><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="index.php">Menu utama</a></p>
             </div>
     </div>
       <!-- Footer -->

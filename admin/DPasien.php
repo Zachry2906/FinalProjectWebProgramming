@@ -1,3 +1,10 @@
+<?php
+session_start();
+if($_SESSION['status']!="admin"){
+  header("location:login.php?pesan=belum_login");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,7 +33,7 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
           <ul class="navbar-nav text-center d-flex align-items-center">
             <li class="nav-item ">
-              <img src="../gambar/sj.png" alt="" srcset=""><a class="navbar-brand" href="#"></a>
+            <a href="idxAdmin.php"><img src="../gambar/sj.png" style="left: 5;" alt="" srcset=""><a class="navbar-brand" href="#"></a></a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-dark ms-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

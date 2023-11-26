@@ -73,12 +73,13 @@ if($_SESSION['status']!="login"){
         <div class="carddd d-flex justify-content-center align-items-center mt-5" >
         <?php
             include 'koneksi.php';
+            $spesialis = $_POST['special'];
             $no = 1;
-            $data = mysqli_query($connect,"select * from dokter");
+            $data = mysqli_query($connect,"select * from dokter WHERE spesialis = '$spesialis'");
             while($d = mysqli_fetch_array($data)){
             ?>
             <div class="card ms-5 text-dark" style="width: 18rem; border-radius: 40px!important">
-                <a href="DetailDok.php?id=<?=$d["id_dokter"] ?>"><img src="gambar/<?=$d["gambar"]?>png" class="card-img-top" alt="..."></a>
+                <a href="DetailDok.php?id=<?=$d["id_dokter"] ?>"><img src="gambar/dok1.png" class="card-img-top" alt="..."></a>
                 <div class="card-body">
                   <p class="mb-0">Nama : <?= $d["nama"]?></p>
                   <p class="mb-0">Pengalaman : <?= $d["pengalaman"]?> Tahun</p>

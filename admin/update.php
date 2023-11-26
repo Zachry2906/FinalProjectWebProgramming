@@ -2,6 +2,11 @@
 
 include "../koneksi.php";
 
+session_start();
+if($_SESSION['status']!="admin"){
+  header("location:login.php?pesan=belum_login");
+}
+
 if (isset($_GET['rek_medis'])) {
     $rek_medis = $_GET['rek_medis'];
     $query = mysqli_query($connect, "SELECT * FROM user WHERE rek_medis='$rek_medis'");
@@ -65,7 +70,7 @@ if (isset($_POST['user'])) {
     <div class="container d-flex align-items-center justify-content-center" style="height: 100%;">
         <div id="daftar" class="row shadow-lg h-75 mx-auto d-flex align-items-center justify-content-center" style="border-radius: 15px; width: 80vw;background-image: url(gambar/bg2.jpg); background-size: cover;">
             <div class="col ms-5">
-                <h1 class="mb-5"><b>Halaman Edit</b></h1>
+                <h1 class="mb-3 mt-1"><b>Halaman Edit</b></h1>
                 <form action="" method="post">
                     <div class="mb-4 row">
                         <label for="inputUsername" class="col-sm-2 col-form-label"><?=($cek <= 5)?"No Rek Medis":"Pengalaman"; ?></label>
@@ -112,8 +117,8 @@ if (isset($_POST['user'])) {
                       <button type="submit" name="<?=($cek <= 5)?"user":"dokter"; ?>" class="btn bg-dark text-light">Edit</button>
                 </form>
             </div>
-            <div class="col ms-5">
-                <img src="../gambar/tts.png" class="ms-5" alt="" srcset="">
+            <div class="col ms-2">
+                <img src="../gambar/mss.png" class="ms-5" alt="" srcset="">
                 <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="idxAdmin.php">Kembali</a></p>
             </div>
     </div>
