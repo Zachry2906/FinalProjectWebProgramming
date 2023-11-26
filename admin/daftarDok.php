@@ -12,7 +12,7 @@ if (isset($_POST['daftar'])) {
     $ruangan = $_POST['ruangan'];
     $gambar = $_POST['gambar'];
 
-    $query = "INSERT INTO dokter (pengalaman, nama, harga, spesialis, deskripsi, ruangan) VALUES ('$pengalaman', '$nama', '$harga', '$spesialis', '$deskripsi', '$ruangan', '$gambar')";
+    $query = "INSERT INTO dokter (id_dokter, pengalaman, nama, harga, spesialis, deskripsi, ruangan, gambar) VALUES ('', '$pengalaman', '$nama', '$harga', '$spesialis', '$deskripsi', '$ruangan', '$gambar')";
     $result = mysqli_query($connect, $query);
 
     if ($result) {
@@ -76,7 +76,7 @@ if (isset($_POST['daftar'])) {
                       <div class="mb-4 row">
                         <label for="inputConfirm" class="col-sm-2 col-form-label">Deskripsi</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="deksripsi">
+                          <input type="text" class="form-control" name="deskripsi">
                         </div>
                       </div>
                       <div class="mb-4 row">

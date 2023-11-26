@@ -19,7 +19,7 @@ if($_SESSION['status']!="admin"){
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style.css" />
-    <link rel="icon" type="image/x-icon" href="img/icon.png" />
+    <link rel="icon" type="image/x-icon" href="../gambar/sjww.png" />
     <title>Selamat Datang!</title>
   </head>
   <body class="overflow-x-hidden">
@@ -42,7 +42,7 @@ if($_SESSION['status']!="admin"){
               <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="DDokter.php">Data Dokter</a></li>
                 <li><a class="dropdown-item" href="DPasien.php">Data Pasien</a></li>
-                <li><a class="dropdown-item" href="DRiwayat.php">Riwayat Data</a></li>
+                
               </ul>
             </li>
             <li class=" ms-2 nav-item dropdown">
@@ -50,12 +50,12 @@ if($_SESSION['status']!="admin"){
               Reservasi
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Data Reservasi</a></li>
-                <li><a class="dropdown-item" href="#">Riwayat Reservasi</a></li>
+                <li><a class="dropdown-item" href="DPesan.php">Data Reservasi</a></li>
+                
               </ul>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page" href="#">Logout</a></button>
+              <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page" href="logout.php">Logout</a></button>
             </li>
             <li class=" ms-2 nav-item">
               <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="daftar.php">Data Dokter</a></button>

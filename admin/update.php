@@ -33,13 +33,15 @@ if (isset($_POST['user'])) {
         echo "<script>alert('Data gagal diubah!'); window.location.href='DPasien.php';</script>";
     }
 } else if (isset($_POST['dokter'])) {
+    $pengalaman = $_POST['pengalaman'];
     $nama = $_POST['nama'];
     $spesialis = $_POST['spesialis'];
     $deskripsi = $_POST['deskripsi'];
     $ruang = $_POST['ruang'];
     $harga = $_POST['harga'];
+    $gambar = $_POST['gambar'];
 
-    $query = mysqli_query($connect, "UPDATE dokter SET nama='$nama', spesialis='$spesialis', deskripsi='$deskripsi', ruangan='$ruang', harga='$harga' WHERE id_dokter='$id_dokter'");
+    $query = mysqli_query($connect, "UPDATE dokter SET pengalaman='$pengalaman', nama='$nama', spesialis='$spesialis', deskripsi='$deskripsi', ruangan='$ruang', harga='$harga', gambar='$gambar' WHERE id_dokter='$id_dokter'");
     if ($query) {
         echo "<script>alert('Data berhasil diubah!'); window.location.href='DDokter.php';</script>";
     } else {
@@ -68,7 +70,7 @@ if (isset($_POST['user'])) {
   </head>
   <body class="overflow-x-hidden" style="height: 100vh;">
     <div class="container d-flex align-items-center justify-content-center" style="height: 100%;">
-        <div id="daftar" class="row shadow-lg h-75 mx-auto d-flex align-items-center justify-content-center" style="border-radius: 15px; width: 80vw;background-image: url(gambar/bg2.jpg); background-size: cover;">
+        <div id="daftar" class="row shadow-lg p-3 mx-auto d-flex align-items-center justify-content-center" style="border-radius: 15px; width: 80vw;background-image: url(gambar/bg2.jpg); background-size: cover;">
             <div class="col ms-5">
                 <h1 class="mb-3 mt-1"><b>Halaman Edit</b></h1>
                 <form action="" method="post">
@@ -110,6 +112,12 @@ if (isset($_POST['user'])) {
                         <label for="inputConfirm" class="col-sm-2 col-form-label">Harga</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" name="harga" placeholder="'.$data['harga'].'">
+                        </div>
+                      </div>
+                      <div class="mb-4 row">
+                        <label for="inputConfirm" class="col-sm-2 col-form-label">Gambar</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="gambar" placeholder="'.$data['gambar'].'">
                         </div>
                       </div>';
                       }

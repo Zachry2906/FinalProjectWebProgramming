@@ -15,7 +15,7 @@ $d = mysqli_fetch_array($data);
 
 if(isset($_POST['submit'])){
     $tanggal = $_POST['tanggal'];
-    $norek = $_SESSION['norek'];
+    $norek = $_SESSION['rek_medis'];
     $jam = $_POST['jam'];
     $id_dokter = $_GET['id'];
 
@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
 
     $query2 = mysqli_query($connect, "INSERT INTO pesanan VALUES ('','$norek','$id_jadwal')");
     if($query1 && $query2){
-        header("location:idxUser.php");
+        header("location:jadwalUser.php");
     }else{
         header("location:DetailDok.php?pesan=gagal");
     }
@@ -95,12 +95,12 @@ if(isset($_POST['submit'])){
               </a>
               <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Cari dokter</a></li>
-                <li><a class="dropdown-item" href="#">Rekomendasi dokter</a></li>
+                
                 <li><a class="dropdown-item" href="dok.php">Daftar dokter</a></li>
               </ul>
             </li>
             <li class=" ms-2 nav-item">
-              <a class="nav-link active text-dark" aria-current="page" href="#">Tentang Kami</a>
+            <a class="nav-link active text-dark" aria-current="page" href="profil.php">Profil Saya</a>
             </li>
             <li class=" ms-2 nav-item">
               <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" href="admin/logout.php" aria-current="page">Logout</a></button>
@@ -119,14 +119,14 @@ if(isset($_POST['submit'])){
     <div class="container mt-5">
         <div class="row mt-5 ms-5 d-flex justify-content-center align-items-center">
             <div class="col mt-5 ms-5">
-                <img class="w-50" src="gambar/dok1.png" alt="">
+                <img src="gambar/<?= $d["gambar"] ?>png" alt="">
             </div>
             <div class="col mt-5">
-                <h1><?= $d["nama"] ?></h1>
-                <h6>Spesialis : <?= $d["spesialis"] ?> </h6>
-                <h6>Pengalaman : <?= $d["pengalaman"] ?> </h6>
-                <h6>Ruangan : <?= $d["ruangan"] ?> </h6>
-                <h6>Harga : <?= $d["harga"] ?> </h6>
+                <b><h1><?= $d["nama"] ?></h1></b>
+                <h5 class="pt-3">Spesialis : <?= $d["spesialis"] ?> </h5>
+                <h5 class="pt-3">Pengalaman : <?= $d["pengalaman"] ?> Tahun </h5>
+                <h5 class="pt-3">Ruangan : <?= $d["ruangan"] ?> </h5>
+                <h5 class="pt-3">Harga : <?= $d["harga"] ?> </h5>
             </div>
         </div>
         <div class="ms-5" style="margin-top :160px; ">
@@ -149,13 +149,13 @@ if(isset($_POST['submit'])){
                 $cek2 = mysqli_num_rows($q2);
                 $q3 = mysqli_query($connect, "SELECT * FROM jadwal_dokter WHERE id_dokter = '$id_dokter' AND jadwal = '2023-11-03'");
                 $cek3 = mysqli_num_rows($q3);
-                $q4 = mysqli_query($connect, "SELECT * FROM jadwal_dokter WHERE id_dokter = '$id_dokter' AND jadwal = '2023-11-04'");
+                $q4 = mysqli_query($connect, "SELECT * FROM jadwal_dokter WHERE id_dokter = '$id_dokter' AND jadwal = '2023-11-06'");
                 $cek4 = mysqli_num_rows($q4);
-                $q5 = mysqli_query($connect, "SELECT * FROM jadwal_dokter WHERE id_dokter = '$id_dokter' AND jadwal = '2023-11-05'");
+                $q5 = mysqli_query($connect, "SELECT * FROM jadwal_dokter WHERE id_dokter = '$id_dokter' AND jadwal = '2023-11-07'");
                 $cek5 = mysqli_num_rows($q5);
-                $q6 = mysqli_query($connect, "SELECT * FROM jadwal_dokter WHERE id_dokter = '$id_dokter' AND jadwal = '2023-11-06'");
+                $q6 = mysqli_query($connect, "SELECT * FROM jadwal_dokter WHERE id_dokter = '$id_dokter' AND jadwal = '2023-11-08'");
                 $cek6 = mysqli_num_rows($q6);
-                $q7 = mysqli_query($connect, "SELECT * FROM jadwal_dokter WHERE id_dokter = '$id_dokter' AND jadwal = '2023-11-07'");
+                $q7 = mysqli_query($connect, "SELECT * FROM jadwal_dokter WHERE id_dokter = '$id_dokter' AND jadwal = '2023-11-09'");
                 $cek7 = mysqli_num_rows($q7);
                 ?>
 

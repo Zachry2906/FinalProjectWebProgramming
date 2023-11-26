@@ -49,7 +49,7 @@ if($_SESSION['status']!="login"){
               </a>
               <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Cari dokter</a></li>
-                <li><a class="dropdown-item" href="#">Rekomendasi dokter</a></li>
+                
                 <li><a class="dropdown-item" href="dok.php">Daftar dokter</a></li>
               </ul>
             </li>
@@ -79,7 +79,7 @@ if($_SESSION['status']!="login"){
             while($d = mysqli_fetch_array($data)){
             ?>
             <div class="card ms-5 text-dark" style="width: 18rem; border-radius: 40px!important">
-                <a href="DetailDok.php?id=<?=$d["id_dokter"] ?>"><img src="gambar/dok1.png" class="card-img-top" alt="..."></a>
+                <a href="DetailDok.php?id=<?=$d["id_dokter"] ?>"><img src="gambar/m<?=$d['gambar']?>png" class="card-img-top" alt="..."></a>
                 <div class="card-body">
                   <p class="mb-0">Nama : <?= $d["nama"]?></p>
                   <p class="mb-0">Pengalaman : <?= $d["pengalaman"]?> Tahun</p>

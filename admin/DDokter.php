@@ -43,7 +43,7 @@ if($_SESSION['status']!="admin"){
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="DDokter.php">Data Dokter</a></li>
                 <li><a class="dropdown-item" href="DPasien.php">Data Pasien</a></li>
-                <li><a class="dropdown-item" href="DRiwayat.php">Riwayat Data</a></li>
+                
               </ul>
             </li>
             <li class=" ms-2 nav-item dropdown">
@@ -52,7 +52,7 @@ if($_SESSION['status']!="admin"){
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Data Reservasi</a></li>
-                <li><a class="dropdown-item" href="#">Riwayat Reservasi</a></li>
+                
               </ul>
             </li>
             <li class=" ms-2 nav-item">

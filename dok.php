@@ -49,18 +49,18 @@ if($_SESSION['status']!="login"){
               </a>
               <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Cari dokter</a></li>
-                <li><a class="dropdown-item" href="#">Rekomendasi dokter</a></li>
+                
                 <li><a class="dropdown-item" href="dok.php">Daftar dokter</a></li>
               </ul>
             </li>
             <li class=" ms-2 nav-item">
-              <a class="nav-link active text-dark" aria-current="page" href="#">Tentang Kami</a>
+            <a class="nav-link active text-dark" aria-current="page" href="profil.php">Profil Saya</a>
             </li>
             <li class=" ms-2 nav-item">
               <button style="border-radius: 12px!important;" class="btn btn-outline-dark ms-5"><a class="nav-link active text-dark" href="admin/logout.php" aria-current="page">Logout</a></button>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="pesananU.php">Jadwal Saya</a></button>
+              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="jadwalUser.php">Jadwal Saya</a></button>
             </li>
           </ul>
         </div>
@@ -70,7 +70,7 @@ if($_SESSION['status']!="login"){
     <!-- HERO GRID -->
     <section class=" mb-5 mt-5 pt-5" style="background-image: url(gambar/bg.jpg); background-size: cover;">
         <h1 class="mt-5" style="margin-left: 285px;">Meet Our Team</h1>
-        <div class="carddd d-flex justify-content-center align-items-center mt-5" >
+        <div class="carddd d-flex flex-wrap justify-content-center align-items-center mt-5" >
         <?php
             include 'koneksi.php';
             $no = 1;
@@ -78,7 +78,7 @@ if($_SESSION['status']!="login"){
             while($d = mysqli_fetch_array($data)){
             ?>
             <div class="card ms-5 text-dark" style="width: 18rem; border-radius: 40px!important">
-                <a href="DetailDok.php?id=<?=$d["id_dokter"] ?>"><img src="gambar/<?=$d["gambar"]?>png" class="card-img-top" alt="..."></a>
+                <a href="DetailDok.php?id=<?=$d["id_dokter"] ?>"><img src="gambar/m<?=$d["gambar"]?>png" class="card-img-top" alt="..."></a>
                 <div class="card-body">
                   <p class="mb-0">Nama : <?= $d["nama"]?></p>
                   <p class="mb-0">Pengalaman : <?= $d["pengalaman"]?> Tahun</p>
@@ -93,25 +93,27 @@ if($_SESSION['status']!="login"){
     <!-- HERO GRID -->
     <br><br><br>
       <!-- inputGAMBAR -->
-      <form  autocomplete="off" class="p-4 card-body mt-5 mx-auto shadow-lg" style="width: 50vw; border-radius: 12px!important; margin-bottom: 140px;">
+      <div class="p-4 card-body mt-5 mx-auto shadow-lg" style="width: 50vw; border-radius: 12px!important; margin-bottom: 140px;">
         <div class="row">
             <div class="col ms-5 col-sm-4 px-2 mb-2 w">
+              <form action="caridok.php" method="post">
                 <label for="input1" class="ms-2 position-absolute" style="margin-top: -0.25rem !important">
                     <span class="h6 small bg-white text-muted px-1">Spesialis</span>
                 </label>
-                <input autocomplete="false" type="text" class="form-control mt-2 p-3" id="input1">
+                <input type="text" name="special" class="form-control mt-2 p-3" id="input1">
             </div>
             <div class="col col-sm-4 px-2 mb-2">
                 <label for="input2" class="ms-2 position-absolute" style="margin-top: -0.25rem !important">
                     <span class="h6 small bg-white text-muted px-1">Hari</span>
                 </label>
-                <input autocomplete="false" type="password" class="form-control mt-2 p-3" id="input2">
+                <input type="date" name="date" class="form-control mt-2 p-3" id="input2">
             </div>
             <div class="col col-sm-1 px-2 mb-2">
-              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark text-light pt-2 pb-2 ps-5 pe-5" style="font-size: 10px;">Cari Jadwal</button>
+              <button style="border-radius: 12px!important;"type="submit" name="submit" class="btn btn-dark bg-dark text-light pt-2 pb-2 ps-5 pe-5" style="font-size: 10px;">Cari Jadwal</button>
           </div>
+          </form>
         </div>
-      </form>
+      </div>
     </section>
       <!-- input -->
       <!-- Project -->

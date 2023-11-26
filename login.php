@@ -25,7 +25,7 @@ if(isset($_POST['login'])){
         $cek = mysqli_num_rows($query);
         if($cek > 0){
           $_SESSION['status'] = "login";
-          $_SESSION['norek'] = $norek;
+          $_SESSION['rek_medis'] = $norek;
           $_SESSION['nama'] = $data['nama'];
           $_SESSION['email'] = $data['email'];
           $_SESSION['tgl'] = $data['tanggal_lahir'];

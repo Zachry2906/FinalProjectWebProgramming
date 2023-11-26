@@ -43,7 +43,7 @@ if($_SESSION['status']!="admin"){
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="DDokter.php">Data Dokter</a></li>
                 <li><a class="dropdown-item" href="DPasien.php">Data Pasien</a></li>
-                <li><a class="dropdown-item" href="DRiwayat.php">Riwayat Data</a></li>
+                
               </ul>
             </li>
             <li class=" ms-2 nav-item dropdown">
@@ -52,7 +52,7 @@ if($_SESSION['status']!="admin"){
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Data Reservasi</a></li>
-                <li><a class="dropdown-item" href="#">Riwayat Reservasi</a></li>
+                
               </ul>
             </li>
             <li class=" ms-2 nav-item">
@@ -72,13 +72,17 @@ if($_SESSION['status']!="admin"){
   <thead>
     <tr>
       <th scope="col">No</th>
-      <th scope="col">Pengalaman</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Spesialis</th>
-      <th scope="col">Deskripsi</th>
+      <th scope="col">Rekaman Medis</th>
+      <th scope="col">Nama Pasien</th>
+      <th scope="col">Email Pasien</th>
+      <th scope="col">Id pesanan</th>
+      <th scope="col">Id jadwal</th>
+      <th scope="col">Tanggal</th>
+      <th scope="col">Jam</th>
+      <th scope="col">Nama Dokter</th>
+      <th scope="col">Spesialis Dokter</th>
       <th scope="col">Ruangan</th>
       <th scope="col">Harga</th>
-      <th scope="col">Gambar</th>
       <th colspan="2">Aksi</th>
     </tr>
   </thead>
@@ -87,20 +91,25 @@ if($_SESSION['status']!="admin"){
 
 include '../koneksi.php';
 $no = 1;
-$data = mysqli_query($connect,"select * from dokter");
+$data = mysqli_query($connect,"SELECT user.rek_medis, user.nama_user,user.email, pesanan.id_pesanan, jadwal_dokter.id_jadwal,  jadwal_dokter.jadwal, jadwal_dokter.jam, dokter.id_dokter, dokter.nama, dokter.spesialis, dokter.ruangan, dokter.harga FROM user INNER JOIN pesanan ON user.rek_medis = pesanan.rek_medis INNER JOIN jadwal_dokter ON pesanan.id_jadwal  = jadwal_dokter.id_jadwal INNER JOIN dokter ON jadwal_dokter.id_dokter = dokter.id_dokter;");
 while($d = mysqli_fetch_array($data)){
 ?>
     <tr>
       <th scope="row"><?php echo $no++; ?></th>
-      <td><?php echo $d['pengalaman']; ?> Tahun </td>
+        <td><?php echo $d['rek_medis']; ?></td>
+        <td><?php echo $d['nama_user']; ?></td>
+        <td><?php echo $d['email']; ?></td>
+        <td><?php echo $d['id_pesanan']; ?></td>
+        <td><?php echo $d['id_jadwal']; ?></td>
+        <td><?php echo $d['jadwal']; ?></td>
+        <td><?php echo $d['jam']; ?></td>
         <td><?php echo $d['nama']; ?></td>
-      <td><?php echo $d['spesialis']; ?></td>
-      <td><?php echo $d['deskripsi']; ?></td>
-      <td><?php echo $d['ruangan']; ?></td>
-      <td><?php echo $d['harga']; ?></td>
-      <td><?php echo $d['gambar']; ?></td>
+        <td><?php echo $d['spesialis']; ?></td>
+        <td><?php echo $d['ruangan']; ?></td>
+        <td><?php echo $d['harga']; ?></td>
+
       <td><button type='button' class='btn btn-outline-primary'><a style='text-decoration: none; color:#465771;' href='update.php?id_dokter=<?=$d["id_dokter"]?>'>Edit</a></button></td>
-        <td><button type='button' class='btn btn-outline-danger'><a style='text-decoration: none;color:#ce3046;' href='hapus.php?id_dokter=<?=$d["id_dokter"]?>'>Hapus</a></button></td>
+        <td><button type='button' class='btn btn-outline-danger'><a style='text-decoration: none;color:#ce3046;' href='hapus.php?id_pesanan=<?=$d["id_pesanan"]?>&id_jadwal=<?=$d["id_jadwal"]?>'>Selesai</a></button></td>
     </tr>
 <?php
 }
