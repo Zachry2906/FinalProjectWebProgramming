@@ -4,7 +4,7 @@ include "../koneksi.php";
 
 session_start();
 if($_SESSION['status']!="admin"){
-  header("location:login.php?pesan=belum_login");
+  header("location:../login.php?pesan=bukanadmin");
 }
 
 if (isset($_GET['rek_medis'])) {
@@ -53,24 +53,10 @@ if (isset($_POST['user'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!--FONT AWESOMW JS-->
-    <!-- Font Awesome JS -->
-    <!-- Bootstrap Font Icon CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/x-icon" href="img/icon.png" />
-    <title>Selamat Datang!</title>
-  </head>
+  <?php include '../tmplt/headAd.php'; ?>
   <body class="overflow-x-hidden" style="height: 100vh;">
     <div class="container d-flex align-items-center justify-content-center" style="height: 100%;">
-        <div id="daftar" class="row shadow-lg p-3 mx-auto d-flex align-items-center justify-content-center" style="border-radius: 15px; width: 80vw;background-image: url(gambar/bg2.jpg); background-size: cover;">
+        <div id="daftar" class="row shadow-lg p-3 mx-auto d-flex align-items-center justify-content-center" style="border-radius: 15px; width: 80vw;background-image: url(../gambar/bg2.jpg); background-size: cover;">
             <div class="col ms-5">
                 <h1 class="mb-3 mt-1"><b>Halaman Edit</b></h1>
                 <form action="" method="post">
@@ -131,9 +117,7 @@ if (isset($_POST['user'])) {
             </div>
     </div>
       <!-- Footer -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-      <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-      <script src="script.js"></script>
+      <?php include '../tmplt/script.php';?>
     </div>
   </body>
 </html>
