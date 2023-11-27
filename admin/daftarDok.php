@@ -15,7 +15,11 @@ if (isset($_POST['daftar'])) {
     $spesialis = $_POST['spesialis'];
     $deskripsi = $_POST['deskripsi'];
     $ruangan = $_POST['ruangan'];
-    $gambar = $_POST['gambar'];
+    $gambar = upload();
+    if ($gambar === false) {
+        return false;
+    }
+
 
     $query = "INSERT INTO dokter (id_dokter, pengalaman, nama, harga, spesialis, deskripsi, ruangan, gambar) VALUES ('', '$pengalaman', '$nama', '$harga', '$spesialis', '$deskripsi', '$ruangan', '$gambar')";
     $result = mysqli_query($connect, $query);
@@ -39,7 +43,7 @@ if (isset($_POST['daftar'])) {
         <div id="daftar" class="row shadow-lg mx-auto d-flex align-items-center justify-content-center p-3" style="border-radius: 15px; width: 80vw;background-image: url(../gambar/bg2.jpg); background-size: cover;">
             <div class="col ms-5">
                 <h1 class="mb-5"><b>Daftar Dokter</b></h1>
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     <div class="mb-4 row">
                         <label for="inputUsername" class="col-sm-2 col-form-label">Pengalaman</label>
                         <div class="col-sm-10">
@@ -79,7 +83,7 @@ if (isset($_POST['daftar'])) {
                       <div class="mb-4 row">
                         <label for="inputConfirm" class="col-sm-2 col-form-label">Gambar</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="gambar">
+                          <input type="file" class="form-control" name="gambar">
                         </div>
                       </div>
                       <button type="submit" name="daftar" class="btn bg-dark text-light">Daftar</button>

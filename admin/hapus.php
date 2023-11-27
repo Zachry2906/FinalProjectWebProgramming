@@ -17,6 +17,10 @@ if (isset($_GET['rek_medis'])) {
     $query = mysqli_query($connect, "DELETE FROM pesanan WHERE id_pesanan='$id_pesanan'");
     $query2 = mysqli_query($connect, "DELETE FROM jadwal_dokter WHERE id_jadwal='$id_jadwal'");
     header("location: DPesan.php");
+} else if (isset($_GET['id_art'])) {
+    $id_art = $_GET['id_art'];
+    $query = mysqli_query($connect, "DELETE FROM Artikel WHERE id_art='$id_art'");
+    header("location: DArtikel.php");
 }
 
 ?>

@@ -18,8 +18,8 @@
             <div class="col-lg-1 col-xs-12 mt-5 ms-5 location">
               <h4 class="mt-lg-0 mb-3 mt-sm-4 text-light">Legal</h4>
               <ul class="m-0 p-0" style="list-style: none">
-                <li class="mb-1"><a class="text-decoration-none text-light" href="profile.html">Terms</a></li>
-                <li class="mb-1"><a class="text-decoration-none text-light" href="profile.html">Privacy</a></li>
+                <li class="mb-1"><a class="text-decoration-none text-light" href="../term.html">Terms</a></li>
+                <li class="mb-1"><a class="text-decoration-none text-light" href="../term.html">Privacy</a></li>
                 <br />
               </ul>
             </div>

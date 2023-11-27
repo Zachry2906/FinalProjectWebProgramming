@@ -3,13 +3,13 @@
 include "../koneksi.php";
 
 session_start();
-if($_SESSION['status']!="admin"){
-  header("location:../login.php?pesan=bukanadmin");
+if($_SESSION['status'] != "login"){
+  header("location:../login.php?pesan=belum_login");
 }
 
 if (isset($_GET['rek_medis'])) {
-    $rek_medis = $_GET['rek_medis'];
-    $query = mysqli_query($connect, "SELECT * FROM user WHERE rek_medis='$rek_medis'");
+    $getrek = $_GET['rek_medis'];
+    $query = mysqli_query($connect, "SELECT * FROM user WHERE rek_medis='$getrek'");
     $data = mysqli_fetch_array($query);
     $cek = 5;
 } else if (isset($_GET['id_dokter'])) {
@@ -26,9 +26,13 @@ if (isset($_POST['user'])) {
     $email = $_POST['email'];
     $tgl = $_POST['tgl'];
 
-    $query = mysqli_query($connect, "UPDATE user SET nama='$nama', password='$password', email='$email', tanggal_lahir='$tgl' WHERE rek_medis='$rek_medis'");
+    $query = mysqli_query($connect, "UPDATE user SET nama_user='$nama', password='$password', email='$email', tanggal_lahir='$tgl' WHERE rek_medis='$getrek'");
     if ($query) {
+      if ($_GET['role'] == "user") {
+        echo "<script>alert('Data berhasil diubah!'); window.location.href='../login.php?pesan=loginulang';</script>";
+      } else {
         echo "<script>alert('Data berhasil diubah!'); window.location.href='DPasien.php';</script>";
+      }
     } else {
         echo "<script>alert('Data gagal diubah!'); window.location.href='DPasien.php';</script>";
     }
@@ -63,13 +67,13 @@ if (isset($_POST['user'])) {
                     <div class="mb-4 row">
                         <label for="inputUsername" class="col-sm-2 col-form-label"><?=($cek <= 5)?"No Rek Medis":"Pengalaman"; ?></label>
                         <div class="col-sm-10">
-                          <input type="number" class="form-control border border-none" name="<?=($cek <= 5)?"rek_medis":"pengalaman"; ?>" placeholder="<?= ($cek <= 5)? $data['rek_medis']: $data['pengalaman'];?>">
+                          <input type="number" class="form-control border border-none" name="<?=($cek <= 5)?"rek_medis":"pengalaman"; ?>" placeholder="<?= ($cek <= 5)? "no rek tidak dapat diganti": $data['pengalaman'];?>">
                         </div>
                       </div>
                     <div class="mb-4 row">
                         <label for="inputUsername" class="col-sm-2 col-form-label"><?="Nama"; ?></i></label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control border border-none" name="nama" placeholder="<?=$data['nama'];?>">
+                          <input type="text" class="form-control border border-none" name="nama" placeholder="<?=$data['nama_user'];?>">
                         </div>
                       </div>
                       <div class="mb-4 row">
@@ -87,7 +91,7 @@ if (isset($_POST['user'])) {
                       <div class="mb-4 row">
                         <label for="inputConfirm" class="col-sm-2 col-form-label"><?=($cek <= 5)?"Tanggal Lahir":"Ruang"; ?></label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="<?=($cek <= 5)?"tgl":"ruang"; ?>" placeholder="<?=($cek <= 5)? $data['tanggal_lahir']: $data['ruangan'];?>">
+                          <input type="date" class="form-control" name="<?=($cek <= 5)?"tgl":"ruang"; ?>" placeholder="<?=($cek <= 5)? $data['tanggal_lahir']: $data['ruangan'];?>">
                         </div>
                       </div>
                       <?php

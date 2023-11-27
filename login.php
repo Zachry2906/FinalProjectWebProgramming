@@ -1,7 +1,7 @@
 <?php
 session_start();
 $pesan = isset($_GET['pesan']) ? $_GET['pesan'] : "";
-
+var_dump($_FILES);
 
 if(isset($_POST['login'])){
     include 'koneksi.php';
@@ -21,13 +21,15 @@ if(isset($_POST['login'])){
         }
     }else if($orang == 2){
         $query = mysqli_query($connect, "SELECT * FROM user WHERE rek_medis='$norek' AND password='$pass'");
+        $data = mysqli_fetch_array($query);
         $cek = mysqli_num_rows($query);
         if($cek > 0){
           $_SESSION['status'] = "login";
           $_SESSION['rek_medis'] = $norek;
-          $_SESSION['nama'] = $data['nama'];
+          $_SESSION['nama'] = $data['nama_user'];
           $_SESSION['email'] = $data['email'];
           $_SESSION['tgl'] = $data['tanggal_lahir'];
+          $_SESSION['foto'] = $data['foto'];
             header("location:user/idxUser.php");
         }else{
             header("location:login.php?pesan=gagal");
@@ -65,6 +67,10 @@ if(isset($_POST['login'])){
                 } else if($pesan == "bukanadmin"){
                   echo "<div class='alert alert-danger' role='alert'>
                   Anda bukan admin!
+                </div>";
+                } else if($pesan == "loginulang"){
+                  echo "<div class='alert alert-success' role='alert'>
+                  Anda berhasil mengubah data, silahkan login ulang!
                 </div>";
                 }
                 ?>

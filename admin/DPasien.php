@@ -41,7 +41,7 @@ while($d = mysqli_fetch_array($data)){
       <td><?php echo $d['email']; ?></td>
       <td><?php echo $d['tanggal_lahir']; ?></td>
       <td><button type='button' class='btn btn-outline-primary'><a style='text-decoration: none; color:#465771;' href='update.php?rek_medis=<?=$d["rek_medis"]?>'>Edit</a></button></td>
-        <td><button type='button' class='btn btn-outline-danger'><a style='text-decoration: none;color:#ce3046;' href='hapus.php?rek_medis=<?=$d["rek_medis"]?>'>Hapus</a></button></td>
+        <td><button type='button' class='btn btn-outline-danger'><a style='text-decoration: none;color:#ce3046;' onclick="return confirm('Apakah anda yakin?');" href='hapus.php?rek_medis=<?=$d["rek_medis"]?>'>Hapus</a></button></td>
     </tr>
 <?php
 }
