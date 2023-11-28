@@ -22,7 +22,6 @@
                 Profil Dokter
               </a>
               <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Cari dokter</a></li>
                 
                 <li><a class="dropdown-item" href="dok.php">Daftar dokter</a></li>
               </ul>

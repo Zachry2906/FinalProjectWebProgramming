@@ -4,12 +4,11 @@ session_start();
 if($_SESSION['status']!="admin"){
   header("location:../login.php?pesan=bukanadmin");
 }
+include '../koneksi.php';
 
 if(isset($_POST['submit'])){
-    include '../koneksi.php';
     var_dump($_POST['xxx']);
     $s = $_POST['xxx'];
-    $date = $_POST['date'];
 
     $data0 = mysqli_query($connect,"SELECT user.rek_medis, user.nama_user,user.email, pesanan.id_pesanan, jadwal_dokter.id_jadwal,  jadwal_dokter.jadwal, jadwal_dokter.jam, dokter.id_dokter, dokter.nama, dokter.spesialis, dokter.ruangan, dokter.harga FROM user INNER JOIN pesanan ON user.rek_medis = pesanan.rek_medis INNER JOIN jadwal_dokter ON pesanan.id_jadwal  = jadwal_dokter.id_jadwal INNER JOIN dokter ON jadwal_dokter.id_dokter = dokter.id_dokter WHERE user.rek_medis = '$s' OR user.nama_user = '$s' OR user.email = '$s' OR jadwal_dokter.jadwal = '$s' OR jadwal_dokter.jam = '$s' OR dokter.nama = '$s' OR dokter.spesialis = '$s' OR dokter.ruangan = '$s' OR dokter.harga = '$s';");
     $cek = mysqli_num_rows($data0);
@@ -43,13 +42,12 @@ if(isset($_POST['submit'])){
       <th scope="col">Spesialis Dokter</th>
       <th scope="col">Ruangan</th>
       <th scope="col">Harga</th>
-      <th colspan="2">Aksi</th>
+      <th scope="col">Aksi</th>
+      <!-- <th colspan="2">Aksi</th> -->
     </tr>
   </thead>
   <tbody>
 <?php
-
-include '../koneksi.php';
 $no = 1;
 while($d = mysqli_fetch_array($data0)){
 ?>
@@ -67,7 +65,7 @@ while($d = mysqli_fetch_array($data0)){
         <td><?php echo $d['ruangan']; ?></td>
         <td><?php echo $d['harga']; ?></td>
 
-      <td><button type='button' class='btn btn-outline-primary'><a style='text-decoration: none; color:#465771;' href='update.php?id_dokter=<?=$d["id_dokter"]?>'>Edit</a></button></td>
+      <!-- <td><button type='button' class='btn btn-outline-primary'><a style='text-decoration: none; color:#465771;' href='update.php?id_dokter=<?=$d["id_dokter"]?>'>Edit</a></button></td> -->
         <td><button type='button' class='btn btn-outline-danger'><a style='text-decoration: none;color:#ce3046;' href='hapus.php?id_pesanan=<?=$d["id_pesanan"]?>&id_jadwal=<?=$d["id_jadwal"]?>'>Selesai</a></button></td>
     </tr>
 <?php

@@ -21,11 +21,10 @@
     <?php 
     session_start();
     if(isset($_SESSION['status'])){
-      if($_SESSION['status']=="login"){
         include '../tmplt/navUserL.php';
       }else{
-        include '../tmplt/navUserNL.php';
-      }}
+        require '../tmplt/navUserNL.php';
+      }
     ?>
     <!-- HERO GRID -->
     <section class=" mb-5 mt-5 pt-5" style="background-image: url(../gambar/bg.jpg); background-size: cover;">

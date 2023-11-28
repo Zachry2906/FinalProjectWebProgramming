@@ -3,7 +3,7 @@
 include "../koneksi.php";
 
 session_start();
-if($_SESSION['status'] != "login"){
+if(!$_SESSION['status']){
   header("location:../login.php?pesan=belum_login");
 }
 
@@ -43,7 +43,10 @@ if (isset($_POST['user'])) {
     $deskripsi = $_POST['deskripsi'];
     $ruang = $_POST['ruang'];
     $harga = $_POST['harga'];
-    $gambar = $_POST['gambar'];
+    $gambar = upload();
+    if ($gambar === false) {
+        return false;
+    }
 
     $query = mysqli_query($connect, "UPDATE dokter SET pengalaman='$pengalaman', nama='$nama', spesialis='$spesialis', deskripsi='$deskripsi', ruangan='$ruang', harga='$harga', gambar='$gambar' WHERE id_dokter='$id_dokter'");
     if ($query) {
@@ -63,35 +66,35 @@ if (isset($_POST['user'])) {
         <div id="daftar" class="row shadow-lg p-3 mx-auto d-flex align-items-center justify-content-center" style="border-radius: 15px; width: 80vw;background-image: url(../gambar/bg2.jpg); background-size: cover;">
             <div class="col ms-5">
                 <h1 class="mb-3 mt-1"><b>Halaman Edit</b></h1>
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     <div class="mb-4 row">
                         <label for="inputUsername" class="col-sm-2 col-form-label"><?=($cek <= 5)?"No Rek Medis":"Pengalaman"; ?></label>
                         <div class="col-sm-10">
-                          <input type="number" class="form-control border border-none" name="<?=($cek <= 5)?"rek_medis":"pengalaman"; ?>" placeholder="<?= ($cek <= 5)? "no rek tidak dapat diganti": $data['pengalaman'];?>">
+                          <input type="number" class="form-control border border-none" name="<?=($cek <= 5)?"rek_medis":"pengalaman"; ?>" value="<?= ($cek <= 5)? "no rek tidak dapat diganti": $data['pengalaman'];?>">
                         </div>
                       </div>
                     <div class="mb-4 row">
                         <label for="inputUsername" class="col-sm-2 col-form-label"><?="Nama"; ?></i></label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control border border-none" name="nama" placeholder="<?=$data['nama_user'];?>">
+                          <input type="text" class="form-control border border-none" name="nama" value="<?= ($cek <= 5)? $data['nama_user']: $data['nama'];?>">
                         </div>
                       </div>
                       <div class="mb-4 row">
                         <label for="inputEmail" class="col-sm-2 col-form-label"><?=($cek <= 5)?"Password":"Spesialis"; ?></label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="<?=($cek <= 5)?"password":"spesialis"; ?>" placeholder="<?=($cek <= 5)? $data['password']: $data['spesialis'];?>">
+                          <input type="text" class="form-control" name="<?=($cek <= 5)?"password":"spesialis"; ?>" value="<?=($cek <= 5)? $data['password']: $data['spesialis'];?>">
                         </div>
                       </div>
                       <div class="mb-4 row">
                         <label for="inputPassword" class="col-sm-2 col-form-label"><?=($cek <= 5)?"Email":"Deskripsi"; ?></label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="<?=($cek <= 5)?"email":"deskripsi"; ?>" placeholder="<?=($cek <= 5)? $data['email']: $data['deskripsi'];?>">
+                          <input type="text" class="form-control" name="<?=($cek <= 5)?"email":"deskripsi"; ?>" value="<?=($cek <= 5)? $data['email']: $data['deskripsi'];?>">
                         </div>
                       </div>
                       <div class="mb-4 row">
                         <label for="inputConfirm" class="col-sm-2 col-form-label"><?=($cek <= 5)?"Tanggal Lahir":"Ruang"; ?></label>
                         <div class="col-sm-10">
-                          <input type="date" class="form-control" name="<?=($cek <= 5)?"tgl":"ruang"; ?>" placeholder="<?=($cek <= 5)? $data['tanggal_lahir']: $data['ruangan'];?>">
+                          <input type="<?=($cek <= 5)?'date': 'text'?>" class="form-control" name="<?=($cek <= 5)?"tgl":"ruang"; ?>" value="<?=($cek <= 5)? $data['tanggal_lahir']: $data['ruangan'];?>">
                         </div>
                       </div>
                       <?php
@@ -101,13 +104,13 @@ if (isset($_POST['user'])) {
                         echo '<div class="mb-4 row">
                         <label for="inputConfirm" class="col-sm-2 col-form-label">Harga</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="harga" placeholder="'.$data['harga'].'">
+                          <input type="text" class="form-control" name="harga" value="'.$data['harga'].'">
                         </div>
                       </div>
                       <div class="mb-4 row">
                         <label for="inputConfirm" class="col-sm-2 col-form-label">Gambar</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="gambar" placeholder="'.$data['gambar'].'">
+                          <input type="file" class="form-control" name="gambar" value="'.$data['gambar'].'">
                         </div>
                       </div>';
                       }

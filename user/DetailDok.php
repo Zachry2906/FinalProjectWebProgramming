@@ -21,7 +21,6 @@ if(isset($_POST['submit'])){
 
     $query1 = mysqli_query($connect, "INSERT INTO jadwal_dokter VALUES ('','$tanggal','$jam','$id_dokter')");
 
-    include '../koneksi.php';
     $data1 = mysqli_query($connect,"select * from jadwal_dokter where id_dokter='$id_dokter'");
     $d1 = mysqli_fetch_array($data1);
     $id_jadwal = $d1['id_jadwal'];
@@ -52,9 +51,9 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="../style.css" />
     <link rel="icon" type="image/x-icon" href="img/icon.png" />
     <style>
-        .cek {
+        /* .cek {
             visibility: hidden;
-        }
+        } */
         .klikk {
             text-align:center; 
             border-radius: 10px; 
@@ -77,7 +76,7 @@ if(isset($_POST['submit'])){
     <div class="container mt-5">
         <div class="row mt-5 ms-5 d-flex justify-content-center align-items-center">
             <div class="col mt-5 ms-5">
-                <img src="../gambar/<?= $d["gambar"] ?>png" alt="">
+                <img src="../gambar/<?= $d["gambar"] ?>" alt="">
             </div>
             <div class="col mt-5">
                 <b><h1><?= $d["nama"] ?></h1></b>
@@ -179,7 +178,7 @@ if(isset($_POST['submit'])){
       <?php include '../tmplt/footer.php';?>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-      <script src="detail.js"></script>
+      <script src="../detail.js"></script>
     </div>
   </body>
 </html>

@@ -76,7 +76,7 @@ if(isset($_POST['daftar'])){
             </div>
             <div class="col ms-5">
                 <img src="gambar/tts.png" class="ms-5" alt="" srcset="">
-                <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="login.php">Saya Sudah Punya Akun</a><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="index.php">Menu utama</a></p>
+                <p class="mt-3"><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="login.php">Saya Sudah Punya Akun</a><a class="link-underline-dark mt-5 ms-5 text-dark text-center" href="user/index.php">Menu utama</a></p>
             </div>
     </div>
       <!-- Footer -->

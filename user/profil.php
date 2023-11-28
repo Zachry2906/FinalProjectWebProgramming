@@ -5,6 +5,8 @@ if (!isset($_SESSION['status'])) {
     header("location:../login.php?pesan=belum_login");
 }
 
+var_dump($_SESSION['foto']);
+
 require '../koneksi.php';
 
 if (isset($_POST["submit"])) {
@@ -49,7 +51,7 @@ if (isset($_POST["submit"])) {
         </div>
         <div class="col col-lg-4">
           <img src="../gambar/<?= $_SESSION['foto']?>" class="mt-3 rounded-circle bg-dark" style="height:40vh; width:40vh;" alt="" srcset="">
-            <div class="ms-5 mb-5 rounded-circle" style="height:10vh; width:10vh; right:393px; top:413px;position:absolute; background-image:url(../gambar/cam.png); background-repeat:no-repeat;background-size: cover; cursor:pointer"></div>
+            <div class="ms-5 mb-5 rounded-circle" style="height:10vh; width:10vh; right:393px; top:463px;position:absolute; background-image:url(../gambar/cam.png); background-repeat:no-repeat;background-size: cover; cursor:pointer"></div>
             <input type="file" name="gambar" class="ms-5 mb-5 rounded-circle bg-danger" style="height:10vh; width:10vh; right:150px; top:100px;position:relative; background-image: url(../gambar/cam.png); filter:opacity(0);cursor:pointer">
         </div>
         </form>

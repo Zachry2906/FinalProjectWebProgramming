@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
           <ul class="navbar-nav text-center d-flex align-items-center">
             <li class="nav-item ">
-              <img src="../gambar/sj.png" alt="" srcset=""><a class="navbar-brand" href="#"></a>
+              <a href="index.php"><img src="../gambar/sj.png" alt="" srcset=""><a class="navbar-brand" href="#"></a></a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-dark ms-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -22,8 +22,6 @@
                 Profil Dokter
               </a>
               <ul class="dropdown-menu">
-              <li><a class="tombol dropdown-item" href="#">Cari dokter</a></li>
-                <li><a class="tombol dropdown-item" href="#">Rekomendasi dokter</a></li>
                 <li><a class="tombol dropdown-item" href="#">Daftar dokter</a></li>
               </ul>
             </li>
