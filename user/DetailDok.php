@@ -2,7 +2,7 @@
 <?php
 session_start();
 if($_SESSION['status']!="login"){
-  header("location:../login.php?pesan=belumlogin");
+  header("location:../index.php?pesan=belumlogin");
 }
 
 
@@ -76,7 +76,7 @@ if(isset($_POST['submit'])){
     <div class="container mt-5">
         <div class="row mt-5 ms-5 d-flex justify-content-center align-items-center">
             <div class="col mt-5 ms-5">
-                <img src="../gambar/<?= $d["gambar"] ?>" alt="">
+                <img src="../gambar/<?= $d["gambar"] ?>png" alt="">
             </div>
             <div class="col mt-5">
                 <b><h1><?= $d["nama"] ?></h1></b>
@@ -117,19 +117,19 @@ if(isset($_POST['submit'])){
                 ?>
 
                 <label for="tanggal1" class="<?=($cek1 >= 3) ? "penuh" : ""?> p-2 klikk mt-5" style=<?=($cek1 < 3) ? "cursor:pointer;;" : "filter:opacity(0.4);" ;?> > Rab, 1 <br> Nov</label>
-                <input type="checkbox" name="tanggal" class="cek m-2" id="tanggal1" value="2023-11-1">
+                <input type="checkbox" name="tanggal" style="visibility: hidden;" class="cek m-2" id="tanggal1" value="2023-11-1">
                 <label for="tanggal2" class="<?=($cek2 >= 3) ? "penuh" : ""?> p-2 klikk mt-5" style= <?=($cek2 < 3) ? "cursor:pointer;;": "filter:opacity(0.4);" ;?> > Kam, 2 <br> Nov</label>
-                <input type="checkbox" name="tanggal" class="cek m-2" id="tanggal2" value="2023-11-2">
+                <input type="checkbox" name="tanggal" style="visibility: hidden;" class="cek m-2" id="tanggal2" value="2023-11-2">
                 <label for="tanggal3" class="<?=($cek3 >= 3) ? "penuh" : ""?> p-2 klikk mt-5" style=<?=($cek3 < 3) ? "cursor:pointer;;": "filter:opacity(0.4);" ;?> > Jum, 3 <br> Nov</label>
-                <input type="checkbox" name="tanggal" class="cek m-2" id="tanggal3" value="2023-11-3">
+                <input type="checkbox" name="tanggal" style="visibility: hidden;" class="cek m-2" id="tanggal3" value="2023-11-3">
                 <label for="tanggal4" class="<?=($cek4 >= 3) ? "penuh" : ""?> p-2 klikk mt-5" style=<?=($cek4 < 3) ? "cursor:pointer;;": "filter:opacity(0.4);" ;?> > Sen, 6 <br> Nov</label>
-                <input type="checkbox" name="tanggal" class="cek m-2" id="tanggal4" value="2023-11-6">
+                <input type="checkbox" name="tanggal" style="visibility: hidden;" class="cek m-2" id="tanggal4" value="2023-11-6">
                 <label for="tanggal5" class="<?=($cek5 >= 3) ? "penuh" : ""?> p-2 klikk mt-5" style=<?=($cek5 < 3) ? "cursor:pointer;;": "filter:opacity(0.4);" ;?> > Sel, 7 <br> Nov</label>
-                <input type="checkbox" name="tanggal" class="cek m-2" id="tanggal5" value="2023-11-7">
+                <input type="checkbox" name="tanggal" style="visibility: hidden;" class="cek m-2" id="tanggal5" value="2023-11-7">
                 <label for="tanggal6" class="<?=($cek6 >= 3) ? "penuh" : ""?> p-2 klikk mt-5" style=<?=($cek6 < 3) ? "cursor:pointer;;": "filter:opacity(0.4);" ;?> > Rab, 8 <br> Nov</label>
-                <input type="checkbox" name="tanggal" class="cek m-2" id="tanggal6" value="2023-11-8">
+                <input type="checkbox" name="tanggal" style="visibility: hidden;" class="cek m-2" id="tanggal6" value="2023-11-8">
                 <label for="tanggal7" class="<?=($cek7 >= 3) ? "penuh" : ""?> p-2 klikk mt-5" style=<?=($cek7 < 3) ? "cursor:pointer;;": "filter:opacity(0.4);" ;?> > Kam, 9 <br> Nov</label>
-                <input type="checkbox" name="tanggal" class="cek m-2" id="tanggal7" value="2023-11-9">
+                <input type="checkbox" name="tanggal" style="visibility: hidden;" class="cek m-2" id="tanggal7" value="2023-11-9">
                 </div>
                 <button type="button" class="btn btn-dark mt-3 mb-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Pesan</button>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

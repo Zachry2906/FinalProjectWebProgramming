@@ -4,7 +4,7 @@ include "../koneksi.php";
 
 session_start();
 if($_SESSION['status']!="admin"){
-  header("location:../login.php?pesan=bukanadmin");
+  header("location:../index.php?pesan=bukanadmin");
 }
 
 if (isset($_GET['id_art'])) {

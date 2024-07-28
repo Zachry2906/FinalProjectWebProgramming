@@ -32,7 +32,7 @@
               <button style="border-radius: 12px!important;" class="tombol btn btn-outline-dark ms-5"><a class="nav-link active text-dark" aria-current="page">Reservasi Sekarang</a></button>
             </li>
             <li class=" ms-2 nav-item">
-              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="../login.php">Login</a></button>
+              <button style="border-radius: 12px!important;" class="btn btn-dark bg-dark ms-4"><a class="nav-link active text-light" aria-current="page" href="../index.php">Login</a></button>
             </li>
           </ul>
         </div>

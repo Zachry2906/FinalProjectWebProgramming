@@ -4,7 +4,7 @@ include "../koneksi.php";
 
 session_start();
 if(!$_SESSION['status']){
-  header("location:../login.php?pesan=belum_login");
+  header("location:../index.php?pesan=belum_login");
 }
 
 if (isset($_GET['rek_medis'])) {
@@ -29,7 +29,7 @@ if (isset($_POST['user'])) {
     $query = mysqli_query($connect, "UPDATE user SET nama_user='$nama', password='$password', email='$email', tanggal_lahir='$tgl' WHERE rek_medis='$getrek'");
     if ($query) {
       if ($_GET['role'] == "user") {
-        echo "<script>alert('Data berhasil diubah!'); window.location.href='../login.php?pesan=loginulang';</script>";
+        echo "<script>alert('Data berhasil diubah!'); window.location.href='../index.php?pesan=loginulang';</script>";
       } else {
         echo "<script>alert('Data berhasil diubah!'); window.location.href='DPasien.php';</script>";
       }

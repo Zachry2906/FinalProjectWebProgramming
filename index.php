@@ -17,7 +17,7 @@ if(isset($_POST['login'])){
             $_SESSION['status'] = "admin";
             header("location:admin/idxAdmin.php");
         }else{
-            header("location:login.php?pesan=gagal");
+            header("location:index.php?pesan=gagal");
         }
     }else if($orang == 2){
         $query = mysqli_query($connect, "SELECT * FROM user WHERE rek_medis='$norek' AND password='$pass'");
@@ -32,10 +32,10 @@ if(isset($_POST['login'])){
           $_SESSION['foto'] = $data['foto'];
             header("location:user/idxUser.php");
         }else{
-            header("location:login.php?pesan=gagal");
+            header("location:index.php?pesan=gagal");
         }
     }else{
-      header("location:login.php?pesan=gagal");
+      header("location:index.php?pesan=gagal");
     }
 }
 
